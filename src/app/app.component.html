@@ -1,0 +1,32 @@
+<mat-toolbar>
+  <span class="title-span">
+    <img class="wbt-logo" src="../assets/logo.png">
+    <h1>WBT Directory</h1>
+  </span>
+  <span class="directory-search">
+    <input type="text"
+    placeholder="name">
+  </span>
+</mat-toolbar>
+
+<mat-list>
+  <ng-container *ngFor="let person of this.people">
+    <mat-list-item>
+      <div class="person-item grid grid-cols-4 gap-4">
+        <span>
+          {{ person.fname }}, {{ person.lname }}
+        </span>
+        <span>
+          {{ person.telephone }}
+        </span>
+        <span>
+          {{ person.email }}
+        </span>
+        <span class="department-icon">
+          {{ person.department }}
+        </span>
+      </div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+  </ng-container>
+</mat-list>
