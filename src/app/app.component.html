@@ -6,28 +6,12 @@
     <h1>WBT Directory</h1>
   </span>
   <span class="directory-search">
-    <input matInput type="search" placeholder="search" [(ngModel)]="searchText" (input)="searchPeople($event)">
+    <input matInput type="search" placeholder="search" [(ngModel)]="searchText">
   </span>
 </mat-toolbar>
 
 <mat-list>
   <ng-container *ngFor="let person of this.people">
-    <mat-list-item *ngIf="person.fname.toLowerCase().includes(searchText) || person.lname.toLowerCase().includes(searchText)">
-      <div class="person-item grid grid-cols-4 gap-4">
-        <span>
-          {{ person.lname }}, {{ person.fname }}
-        </span>
-        <span>
-          {{ person.telephone }}
-        </span>
-        <span>
-          {{ person.email }}
-        </span>
-        <span class="department-icon">
-          {{ person.department }}
-        </span>
-      </div>
-    </mat-list-item>
-    <mat-divider *ngIf="person.fname.toLowerCase().includes(searchText) || person.lname.toLowerCase().includes(searchText)"></mat-divider>
+    <app-person-list [searchText]="searchText" [person]="person"></app-person-list>
   </ng-container>
 </mat-list>

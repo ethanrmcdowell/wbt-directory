@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { people } from '../assets/fakePeople';
+// import { people } from '../assets/fakePeople';
+import data from '../assets/people.json';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
@@ -11,22 +12,23 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
+import { PersonListComponent } from "./person-list/person-list.component";
 
 @Component({
-  selector: 'app-root',
-  standalone: true,
-  imports: [CommonModule, MatToolbarModule, MatListModule, MatDividerModule, MatBadgeModule, MatInputModule, MatFormFieldModule, FormsModule],
-  templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
+    selector: 'app-root',
+    standalone: true,
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.css',
+    imports: [CommonModule, MatToolbarModule, MatListModule, MatDividerModule, MatBadgeModule, MatInputModule, MatFormFieldModule, FormsModule, PersonListComponent]
 })
 export class AppComponent {
   title = 'wbt-directory';
-  people: any = people;
-  fullPeople: any = people;
+  people: any = data.users;
+  fullPeople: any = data.users;
   searchText: string = "";
 
   ngOnInit() {
-    people.forEach((person: any) => {
+    this.people.forEach((person: any) => {
       let areaCode = person.telephone.substring(0,3);
       let middleDigits = person.telephone.substring(3,6);
       let endDigits = person.telephone.substring(6);
@@ -34,16 +36,6 @@ export class AppComponent {
       person.telephone = "(" + areaCode + ") " + middleDigits + "-" + endDigits;
     })
 
-    people.sort((a: any, b: any) => a.lname.localeCompare(b.lname));
-  }
-
-  searchPeople(event: any) {
-    console.log("SEARCH TEXT: " + this.searchText);
-
-    let match = this.people.filter((person: any) => {
-      person.lname.toLowerCase().includes(this.searchText.toLowerCase()) || person.fname.toLowerCase().includes(this.searchText.toLowerCase());
-    })
-
-    console.log(match);
+    this.people.sort((a: any, b: any) => a.lname.localeCompare(b.lname));
   }
 }

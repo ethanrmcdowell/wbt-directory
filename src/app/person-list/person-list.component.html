@@ -1,0 +1,17 @@
+<mat-list-item *ngIf="person.fname.toLowerCase().includes(searchText) || person.lname.toLowerCase().includes(searchText)">
+    <div class="person-item grid grid-cols-4 gap-4">
+      <span>
+        {{ person.lname }}, {{ person.fname }}
+      </span>
+      <span>
+        {{ person.telephone }}
+      </span>
+      <span>
+        {{ person.email }}
+      </span>
+      <span class="department-icon">
+        {{ person.department }}
+      </span>
+    </div>
+  </mat-list-item>
+  <mat-divider *ngIf="person.fname.toLowerCase().includes(searchText) || person.lname.toLowerCase().includes(searchText)"></mat-divider>

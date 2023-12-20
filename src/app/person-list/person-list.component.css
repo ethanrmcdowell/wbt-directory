@@ -1,0 +1,10 @@
+.department-icon {
+    background-color: coral;
+    color: white;
+    border-radius: 25px;
+    font-size: 12px;
+    padding: 5px;
+    width: 75px;
+    margin-left: 50%;
+    text-align: center;
+}
