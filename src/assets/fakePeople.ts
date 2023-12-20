@@ -59,5 +59,29 @@ export const people = [
         "department": "IT",
         "telephone": "2463890409",
         "email": "vparks@fake.com",
+    },{
+        "fname": "Elizabeth",
+        "lname": "McCaffrey",
+        "department": "Clerk",
+        "telephone": "2463890410",
+        "email": "emccaffrey@fake.com",
+    },{
+        "fname": "Jeremiah",
+        "lname": "Sims",
+        "department": "IT",
+        "telephone": "2463890411",
+        "email": "jsims@fake.com",
+    },{
+        "fname": "Thomas",
+        "lname": "Bucket",
+        "department": "Police",
+        "telephone": "2463890412",
+        "email": "tbucket@fake.com",
+    },{
+        "fname": "Caidy",
+        "lname": "Tsar",
+        "department": "IT",
+        "telephone": "2463890413",
+        "email": "ctsar@fake.com",
     },
 ]

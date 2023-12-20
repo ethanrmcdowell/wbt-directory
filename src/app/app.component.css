@@ -5,6 +5,35 @@ mat-toolbar {
     color: white;
 }
 
+.directory-search {
+    padding: 10px;
+    color: coral;
+}
+
+.directory-search input {
+    border-radius: 25px;
+    padding: 5px 10px;
+    font-size: 15px;
+    font-family: DMSerif;
+
+    &:focus {
+        border: none;
+        outline: none;
+    }
+
+    &::placeholder {
+        padding: 10px;
+        font-family: DMSerif;
+        color: coral;
+        opacity: 0.5;
+    }
+}
+
+span h1 {
+    font-family: DMSerif;
+    font-size: 25px;
+}
+
 .department-icon {
     background-color: coral;
     color: white;
@@ -16,14 +45,13 @@ mat-toolbar {
     text-align: center;
 }
 
+.directory-search {
+    margin-top: 5px;
+}
+
 .title-span {
     display: flex;
     flex-direction: row;
-}
-
-.title-span h1 {
-    font-family: DMSerif;
-    margin-left: 30px;
 }
 
 .wbt-logo {

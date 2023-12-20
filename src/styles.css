@@ -7,5 +7,8 @@
     src: url("./assets/DMSerifDisplay-Regular.ttf")
 }
 
-html, body { height: 100%; }
+html, body {
+    height: 100%;
+    font-family: DMSerif;
+}
 body { margin: 0; }
