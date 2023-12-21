@@ -1,1 +1,41 @@
-<p>department-employees works!</p>
+<div class="dept-title">
+    <h1>Clerk</h1>
+</div>
+<ng-container *ngFor="let person of this.byDepartments.clerk">
+    <app-person-list [searchText]="searchText" [person]="person"></app-person-list>
+</ng-container>
+
+<div class="dept-title">
+    <h1>Fire</h1>
+</div>
+<ng-container *ngFor="let person of this.byDepartments.fire">
+    <app-person-list [searchText]="searchText" [person]="person"></app-person-list>
+</ng-container>
+
+<div class="dept-title">
+    <h1>HR</h1>
+</div>
+<ng-container *ngFor="let person of this.byDepartments.hr">
+    <app-person-list [searchText]="searchText" [person]="person"></app-person-list>
+</ng-container>
+
+<div class="dept-title">
+    <h1>IT</h1>
+</div>
+<ng-container *ngFor="let person of this.byDepartments.it">
+    <app-person-list [searchText]="searchText" [person]="person"></app-person-list>
+</ng-container>
+
+<div class="dept-title">
+    <h1>Police</h1>
+</div>
+<ng-container *ngFor="let person of this.byDepartments.police">
+    <app-person-list [searchText]="searchText" [person]="person"></app-person-list>
+</ng-container>
+
+<div class="dept-title">
+    <h1>Treasury</h1>
+</div>
+<ng-container *ngFor="let person of this.byDepartments.treasury">
+    <app-person-list [searchText]="searchText" [person]="person"></app-person-list>
+</ng-container>

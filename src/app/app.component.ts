@@ -74,7 +74,6 @@ export class AppComponent {
   }
 
   changeDirectory(event: any) {
-    console.log(event.value);
     this.directorySelected = event.value;
   }
 }

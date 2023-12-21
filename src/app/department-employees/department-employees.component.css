@@ -1,0 +1,11 @@
+.dept-title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0 15px 0;
+}
+
+.dept-title h1 {
+    font-size: 22px;
+}

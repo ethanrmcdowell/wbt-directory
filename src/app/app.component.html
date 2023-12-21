@@ -6,20 +6,20 @@
     <h1>WBT Directory</h1>
   </span>
   <span class="directory-search">
-    <input matInput type="search" placeholder="search" [(ngModel)]="searchText">
+    <input matInput type="search" placeholder="search" [(ngModel)]="searchText" (keydown)="directorySelected = 'all'">
   </span>
 </mat-toolbar>
 
 <div class="chip-box">
   <mat-chip-listbox (change)="changeDirectory($event)">
-    <mat-chip-option color="warn" class="chip-all" value="all" selected>All Employees</mat-chip-option>
-    <mat-chip-option color="warn" class="chip-dept" value="department">Employees by Department</mat-chip-option>
-    <mat-chip-option color="warn" class="chip-buildings" value="building">Buildings</mat-chip-option>
+    <mat-chip-option color="warn" class="chip-all" value="all" [selected]="directorySelected === 'all'">All Employees</mat-chip-option>
+    <mat-chip-option color="warn" class="chip-dept" value="department" [selected]="directorySelected === 'department'">Employees by Department</mat-chip-option>
+    <mat-chip-option color="warn" class="chip-buildings" value="building" [selected]="directorySelected === 'building'">Buildings</mat-chip-option>
   </mat-chip-listbox>
 </div>
 
 
 <mat-list>
   <app-all-employees [searchText]="searchText" [people]="people" *ngIf="directorySelected === 'all'"></app-all-employees>
-  <app-department-employees [searchText]="searchText" *ngIf="directorySelected === 'department'"></app-department-employees>
+  <app-department-employees [searchText]="searchText" [byDepartments]="byDepartments" *ngIf="directorySelected === 'department'"></app-department-employees>
 </mat-list>

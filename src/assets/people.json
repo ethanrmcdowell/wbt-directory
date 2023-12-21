@@ -79,11 +79,53 @@
             "telephone": "2463890412",
             "email": "tbucket@fake.com"
         },{
-            "fname": "Caidy",
-            "lname": "Tsar",
-            "department": "IT",
-            "telephone": "2463890413",
-            "email": "ctsar@fake.com"
+            "fname": "Angela",
+            "lname": "Borough",
+            "department": "Fire",
+            "telephone": "2463890414",
+            "email": "aborough@fake.com"
+        },{
+            "fname": "Brody",
+            "lname": "Jenkins",
+            "department": "HR",
+            "telephone": "2463890415",
+            "email": "bjenkins@fake.com"
+        },{
+            "fname": "Katherine",
+            "lname": "McDougal",
+            "department": "HR",
+            "telephone": "2463890416",
+            "email": "kmcdougal@fake.com"
+        },{
+            "fname": "Evelynn",
+            "lname": "Murphy",
+            "department": "HR",
+            "telephone": "2463890417",
+            "email": "emurphy@fake.com"
+        },{
+            "fname": "Taylor",
+            "lname": "Masterson",
+            "department": "Fire",
+            "telephone": "2463890418",
+            "email": "tmasterson@fake.com"
+        },{
+            "fname": "James",
+            "lname": "Blake",
+            "department": "Police",
+            "telephone": "2463890419",
+            "email": "jblake@fake.com"
+        },{
+            "fname": "Vivi",
+            "lname": "DiMarco",
+            "department": "Treasury",
+            "telephone": "2463890420",
+            "email": "vdimarco@fake.com"
+        },{
+            "fname": "Sara",
+            "lname": "Kim",
+            "department": "Treasury",
+            "telephone": "2463890421",
+            "email": "skim@fake.com"
         }
     ]
 }
