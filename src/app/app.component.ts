@@ -32,6 +32,12 @@ export class AppComponent {
   directorySelected: string = "all";
 
   ngOnInit() {
+    this.formatPhone();
+
+    this.people.sort((a: any, b: any) => a.lname.localeCompare(b.lname));
+  }
+
+  formatPhone() {
     this.people.forEach((person: any) => {
       let areaCode = person.telephone.substring(0,3);
       let middleDigits = person.telephone.substring(3,6);
@@ -39,8 +45,6 @@ export class AppComponent {
 
       person.telephone = "(" + areaCode + ") " + middleDigits + "-" + endDigits;
     })
-
-    this.people.sort((a: any, b: any) => a.lname.localeCompare(b.lname));
   }
 
   changeDirectory(event: any) {
