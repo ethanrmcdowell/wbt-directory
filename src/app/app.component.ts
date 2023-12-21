@@ -27,14 +27,22 @@ import { DepartmentEmployeesComponent } from "./department-employees/department-
 export class AppComponent {
   title = 'wbt-directory';
   people: any = data.users;
-  fullPeople: any = data.users;
   searchText: string = "";
   directorySelected: string = "all";
+  byDepartments: any = {
+    it: [],
+    police: [],
+    fire: [],
+    clerk: [],
+    treasury: [],
+    hr: [],
+  };
 
   ngOnInit() {
     this.formatPhone();
-
     this.people.sort((a: any, b: any) => a.lname.localeCompare(b.lname));
+
+    console.log(this.byDepartments);
   }
 
   formatPhone() {
@@ -44,7 +52,25 @@ export class AppComponent {
       let endDigits = person.telephone.substring(6);
 
       person.telephone = "(" + areaCode + ") " + middleDigits + "-" + endDigits;
+
+      this.formatDepartments(person);
     })
+  }
+
+  formatDepartments(person: any) {
+    if (person.department === 'IT') {
+      this.byDepartments.it.push(person);
+    } else if (person.department === 'HR') {
+      this.byDepartments.hr.push(person);
+    } else if (person.department === 'Police') {
+      this.byDepartments.police.push(person);
+    } else if (person.department === 'Fire') {
+      this.byDepartments.fire.push(person);
+    } else if (person.department === 'Clerk') {
+      this.byDepartments.clerk.push(person);
+    } else if (person.department === 'Treasury') {
+      this.byDepartments.treasury.push(person);
+    }
   }
 
   changeDirectory(event: any) {
