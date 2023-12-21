@@ -10,8 +10,16 @@
   </span>
 </mat-toolbar>
 
+<div class="chip-box">
+  <mat-chip-listbox (change)="changeDirectory($event)">
+    <mat-chip-option color="warn" class="chip-all" value="all" selected>All Employees</mat-chip-option>
+    <mat-chip-option color="warn" class="chip-dept" value="department">Employees by Department</mat-chip-option>
+    <mat-chip-option color="warn" class="chip-buildings" value="building">Buildings</mat-chip-option>
+  </mat-chip-listbox>
+</div>
+
+
 <mat-list>
-  <ng-container *ngFor="let person of this.people">
-    <app-person-list [searchText]="searchText" [person]="person"></app-person-list>
-  </ng-container>
+  <app-all-employees [searchText]="searchText" [people]="people" *ngIf="directorySelected === 'all'"></app-all-employees>
+  <app-department-employees [searchText]="searchText" *ngIf="directorySelected === 'department'"></app-department-employees>
 </mat-list>

@@ -5,6 +5,14 @@ mat-toolbar {
     color: white;
 }
 
+.chip-box {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px 0 10px 0;
+}
+
 .directory-search {
     padding: 10px;
     color: coral;
