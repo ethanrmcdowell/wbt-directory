@@ -20,6 +20,10 @@
 
 
 <mat-list>
-  <app-all-employees [searchText]="searchText" [people]="people" *ngIf="directorySelected === 'all'"></app-all-employees>
-  <app-department-employees [searchText]="searchText" [byDepartments]="byDepartments" *ngIf="directorySelected === 'department'"></app-department-employees>
+  @if (directorySelected === 'all') {
+    <app-all-employees [searchText]="searchText" [people]="people"></app-all-employees>
+  } @else if (directorySelected === 'department') {
+    <app-department-employees [searchText]="searchText" [byDepartments]="byDepartments" *ngIf="directorySelected === 'department'"></app-department-employees>
+  }
+  
 </mat-list>

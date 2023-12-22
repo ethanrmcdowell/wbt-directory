@@ -1,41 +1,41 @@
 <div class="dept-title">
     <h1>Clerk</h1>
 </div>
-<ng-container *ngFor="let person of this.byDepartments.clerk">
+@for (person of this.byDepartments.clerk; track person.telephone) {
     <app-person-list [searchText]="searchText" [person]="person"></app-person-list>
-</ng-container>
+}
 
 <div class="dept-title">
     <h1>Fire</h1>
 </div>
-<ng-container *ngFor="let person of this.byDepartments.fire">
+@for (person of this.byDepartments.fire; track person.telephone) {
     <app-person-list [searchText]="searchText" [person]="person"></app-person-list>
-</ng-container>
+}
 
 <div class="dept-title">
     <h1>HR</h1>
 </div>
-<ng-container *ngFor="let person of this.byDepartments.hr">
+@for (person of this.byDepartments.hr; track person.telephone) {
     <app-person-list [searchText]="searchText" [person]="person"></app-person-list>
-</ng-container>
+}
 
 <div class="dept-title">
     <h1>IT</h1>
 </div>
-<ng-container *ngFor="let person of this.byDepartments.it">
+@for (person of this.byDepartments.it; track person.telephone) {
     <app-person-list [searchText]="searchText" [person]="person"></app-person-list>
-</ng-container>
+}
 
 <div class="dept-title">
     <h1>Police</h1>
 </div>
-<ng-container *ngFor="let person of this.byDepartments.police">
+@for (person of this.byDepartments.police; track person.telephone) {
     <app-person-list [searchText]="searchText" [person]="person"></app-person-list>
-</ng-container>
+}
 
 <div class="dept-title">
     <h1>Treasury</h1>
 </div>
-<ng-container *ngFor="let person of this.byDepartments.treasury">
+@for (person of this.byDepartments.treasury; track person.telephone) {
     <app-person-list [searchText]="searchText" [person]="person"></app-person-list>
-</ng-container>
+}
