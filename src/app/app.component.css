@@ -5,12 +5,16 @@ mat-toolbar {
     color: white;
 }
 
-.chip-box {
+.radio-box {
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 5px 0 10px 0;
+    margin: 10px 0 15px 0;
+}
+
+.radio-box mat-radio-button {
+    margin: 0 10px 0 10px;
 }
 
 .directory-search {

@@ -127,5 +127,59 @@
             "telephone": "2463890421",
             "email": "skim@fake.com"
         }
+    ],
+    "fax": [
+        {
+            "name": "Assessing",
+            "number": "2486827851"
+        },        {
+            "name": "Clerk",
+            "number": "2486823788"
+        },        {
+            "name": "Code Enforcement",
+            "number": "24868272026"
+        },        {
+            "name": "Development Service",
+            "number": "2484514871"
+        },        {
+            "name": "Fire Administration",
+            "number": "2484060060"
+        },{
+            "name": "Fire Station #2",
+            "number": "2486617519"
+        },{
+            "name": "Fire Station #4",
+            "number": "2483630985"
+        },{
+            "name": "Fire Station #5 Crew",
+            "number": "2484060061"
+        },{
+            "name": "Fire Station #5 Shift Cmdr",
+            "number": "2486265142"
+        },{
+            "name": "Fire Station #9",
+            "number": "2486826111"
+        },{
+            "name": "IT",
+            "number": "2486821915"
+        },{
+            "name": "Parks & Recreation",
+            "number": "2487382529"
+        },{
+            "name": "Personnel",
+            "number": "2484514875"
+        },{
+            "name": "Police",
+            "number": "2486821811"
+        },{
+            "name": "Supervisor",
+            "number": "2486820432"
+        },{
+            "name": "Town Hall",
+            "number": "2484514787"
+        },{
+            "name": "Treasurer",
+            "number": "2484514865"
+        }
     ]
 }

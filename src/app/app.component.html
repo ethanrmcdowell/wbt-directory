@@ -11,11 +11,11 @@
 </mat-toolbar>
 
 <div class="chip-box">
-  <mat-chip-listbox (change)="changeDirectory($event)">
-    <mat-chip-option color="warn" class="chip-all" value="all" [selected]="directorySelected === 'all'">All Employees</mat-chip-option>
-    <mat-chip-option color="warn" class="chip-dept" value="department" [selected]="directorySelected === 'department'">Employees by Department</mat-chip-option>
-    <mat-chip-option color="warn" class="chip-buildings" value="building" [selected]="directorySelected === 'building'">Buildings</mat-chip-option>
-  </mat-chip-listbox>
+  <mat-radio-group [(ngModel)]="directorySelected" class="radio-box" (change)="changeDirectory($event)">
+    <mat-radio-button color="warn" value="all">All Employees</mat-radio-button>
+    <mat-radio-button color="warn" value="department">Employees by Department</mat-radio-button>
+    <mat-radio-button color="warn" value="fax">Fax Numbers</mat-radio-button>
+  </mat-radio-group>
 </div>
 
 
@@ -23,7 +23,9 @@
   @if (directorySelected === 'all') {
     <app-all-employees [searchText]="searchText" [people]="people"></app-all-employees>
   } @else if (directorySelected === 'department') {
-    <app-department-employees [searchText]="searchText" [byDepartments]="byDepartments" *ngIf="directorySelected === 'department'"></app-department-employees>
+    <app-department-employees [searchText]="searchText" [byDepartments]="byDepartments"></app-department-employees>
+  } @else if (directorySelected === 'fax') {
+    <app-fax-numbers [faxes]="fax"></app-fax-numbers>
   }
   
 </mat-list>
