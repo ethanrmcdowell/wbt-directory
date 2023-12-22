@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-// import { people } from '../assets/fakePeople';
 import data from '../assets/people.json';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -29,6 +28,7 @@ export class AppComponent {
   people: any = data.users;
   searchText: string = "";
   directorySelected: string = "all";
+  departments: string[] = ["it", "hr", "police", "fire", "clerk", "treasury"];
   byDepartments: any = {
     it: [],
     police: [],
@@ -40,9 +40,7 @@ export class AppComponent {
 
   ngOnInit() {
     this.formatPhone();
-    this.people.sort((a: any, b: any) => a.lname.localeCompare(b.lname));
-
-    console.log(this.byDepartments);
+    this.sortArrays();
   }
 
   formatPhone() {
@@ -73,7 +71,15 @@ export class AppComponent {
     }
   }
 
+  sortArrays() {
+    this.people.sort((a: any, b: any) => a.lname.localeCompare(b.lname));
+    this.departments.forEach((dept) => {
+      this.byDepartments[dept].sort((a: any, b:any) => a.lname.localeCompare(b.lname));
+    });
+  }
+
   changeDirectory(event: any) {
+    this.searchText = "";
     this.directorySelected = event.value;
   }
 }

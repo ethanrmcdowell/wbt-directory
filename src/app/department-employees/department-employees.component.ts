@@ -12,7 +12,4 @@ import { PersonListComponent } from "../person-list/person-list.component";
 export class DepartmentEmployeesComponent {
   @Input() searchText: string = '';
   @Input() byDepartments: any;
-
-  ngOnInit() {
-  }
 }
