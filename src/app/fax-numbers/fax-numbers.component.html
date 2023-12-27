@@ -1,1 +1,16 @@
-<p>fax-numbers works!</p>
+<div class="fax-header">
+    <h1>Fax Numbers:</h1>
+</div>
+@for (fax of this.faxes; track faxes.number) {
+    <mat-list-item>
+        <div class="grid grid-cols-2 gap-2">
+            <span>
+                {{ fax.name }}
+            </span>
+            <span>
+                {{ fax.number }}
+            </span>
+        </div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+}
