@@ -47,8 +47,6 @@ export class AppComponent {
     await this.getDirectoryData();
     await this.getFaxData();
 
-    this.formatPhone();
-    this.formatFax();
     this.sortArrays();
   }
 
@@ -71,6 +69,7 @@ export class AppComponent {
       data = { id, ...data };
       this.people.push(data);
     });
+    this.formatPhone();
   }
 
   async getFaxData() {
@@ -83,6 +82,7 @@ export class AppComponent {
       data = { id, ...data };
       this.fax.push(data);
     });
+    this.formatFax();
   }
 
   formatPhone() {
@@ -95,6 +95,7 @@ export class AppComponent {
 
       this.formatDepartments(person);
     })
+    this.people.sort((a: any, b: any) => a.lname.localeCompare(b.lname));
   }
 
   formatFax() {
@@ -126,7 +127,6 @@ export class AppComponent {
   }
 
   sortArrays() {
-    this.people.sort((a: any, b: any) => a.lname.localeCompare(b.lname));
     this.departments.forEach((dept) => {
       this.byDepartments[dept].sort((a: any, b:any) => a.lname.localeCompare(b.lname));
     });
