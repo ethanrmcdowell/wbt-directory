@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
 
 import { Firestore, addDoc, collection, getDocs } from '@angular/fire/firestore';
 
@@ -12,21 +13,27 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { MatChipsModule } from '@angular/material/chips';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatIconModule } from '@angular/material/icon';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
 
 import { PersonListComponent } from "./person-list/person-list.component";
 import { AllEmployeesComponent } from "./all-employees/all-employees.component";
 import { DepartmentEmployeesComponent } from "./department-employees/department-employees.component";
 import { FaxNumbersComponent } from "./fax-numbers/fax-numbers.component";
+import { LoginDialogComponent } from './login-dialog/login-dialog.component';
+import { AdminPanelComponent } from './admin-panel/admin-panel.component';
+import { AuthService } from './auth.service';
 
 @Component({
     selector: 'app-root',
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.css',
-    imports: [CommonModule, MatRadioModule, MatToolbarModule, MatListModule, MatDividerModule, MatBadgeModule, MatInputModule, MatFormFieldModule, FormsModule, MatChipsModule, PersonListComponent, AllEmployeesComponent, DepartmentEmployeesComponent, FaxNumbersComponent]
+    imports: [CommonModule, MatDialogModule, MatIconModule, MatRadioModule, MatToolbarModule, MatListModule, MatDividerModule, MatBadgeModule, MatInputModule, MatFormFieldModule, FormsModule, MatChipsModule, PersonListComponent, AllEmployeesComponent, DepartmentEmployeesComponent, FaxNumbersComponent, AdminPanelComponent]
 })
 export class AppComponent {
   title = 'wbt-directory';
+  userAuthenticated: boolean = false;
   people: any = [];
   fax: any = [];
   searchText: string = "";
@@ -41,7 +48,11 @@ export class AppComponent {
     hr: [],
   };
 
-  constructor(private firestore: Firestore) {}
+  constructor(private firestore: Firestore, public dialog: MatDialog, private authService: AuthService) {
+    this.authService.userAuthenticated$.subscribe(isAuthenticated => {
+      this.userAuthenticated = isAuthenticated;
+    });
+  }
 
   async ngOnInit() {
     await this.getDirectoryData();
@@ -135,5 +146,13 @@ export class AppComponent {
   changeDirectory(event: any) {
     this.searchText = "";
     this.directorySelected = event.value;
+  }
+
+  adminDialog() {
+    const dialogRef = this.dialog.open(LoginDialogComponent);
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log(`Dialog result: ${result}`)
+    })
   }
 }

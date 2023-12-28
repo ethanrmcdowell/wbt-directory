@@ -5,6 +5,11 @@ mat-toolbar {
     color: white;
 }
 
+
+.admin-button {
+    margin: 50px 50px 0 25px;
+}
+
 .radio-box {
     width: 100%;
     display: flex;
