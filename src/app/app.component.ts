@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import data from '../assets/people.json';
+import { Firestore, addDoc, collection, getDocs } from '@angular/fire/firestore';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
@@ -27,8 +27,8 @@ import { FaxNumbersComponent } from "./fax-numbers/fax-numbers.component";
 })
 export class AppComponent {
   title = 'wbt-directory';
-  people: any = data.users;
-  fax: any = data.fax;
+  people: any = [];
+  fax: any = [];
   searchText: string = "";
   directorySelected: string = "all";
   departments: string[] = ["it", "hr", "police", "fire", "clerk", "treasury"];
@@ -41,10 +41,48 @@ export class AppComponent {
     hr: [],
   };
 
-  ngOnInit() {
+  constructor(private firestore: Firestore) {}
+
+  async ngOnInit() {
+    await this.getDirectoryData();
+    await this.getFaxData();
+
     this.formatPhone();
     this.formatFax();
     this.sortArrays();
+  }
+
+  addToFirestore(person: any) {
+    const collectionInstance = collection(this.firestore, 'faxes');
+    addDoc(collectionInstance, person).then(() => {
+      console.log("SUCCESS!");
+    }).catch(error => {
+      console.error("Error adding to Firestore:", error);
+    })
+  }
+
+  async getDirectoryData() {
+    const q = collection(this.firestore, 'directory');
+    const querySnapshot = await getDocs(q);
+
+    querySnapshot.forEach(doc => {
+      let data = doc.data();
+      const id = doc.id;
+      data = { id, ...data };
+      this.people.push(data);
+    });
+  }
+
+  async getFaxData() {
+    const q = collection(this.firestore, 'faxes');
+    const querySnapshot = await getDocs(q);
+
+    querySnapshot.forEach(doc => {
+      let data = doc.data();
+      const id = doc.id;
+      data = { id, ...data };
+      this.fax.push(data);
+    });
   }
 
   formatPhone() {

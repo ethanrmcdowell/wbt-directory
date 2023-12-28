@@ -90,6 +90,23 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "version": 2
+          },
+          "configurations": {
+            "production": {
+              "buildTarget": "wbt-directory:build:production",
+              "serveTarget": "wbt-directory:serve:production"
+            },
+            "development": {
+              "buildTarget": "wbt-directory:build:development",
+              "serveTarget": "wbt-directory:serve:development"
+            }
+          },
+          "defaultConfiguration": "production"
         }
       }
     }

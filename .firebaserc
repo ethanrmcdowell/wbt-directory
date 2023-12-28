@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "wbt-directory": {
+      "hosting": {
+        "wbt-directory": [
+          "wbt-directory"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "wbt-directory"
+  }
+}
