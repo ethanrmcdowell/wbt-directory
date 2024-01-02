@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 
+import { employeeData } from '../assets/employees';
+
 import { Firestore, addDoc, collection, getDocs } from '@angular/fire/firestore';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -60,6 +62,10 @@ export class AppComponent {
     this.showAdmin = false;
     this.authService.checkUserStatus();
 
+    // employeeData.forEach(person => {
+    //   this.addToFirestore(person);
+    // });
+
     await this.getDirectoryData();
     await this.getFaxData();
 
@@ -67,7 +73,7 @@ export class AppComponent {
   }
 
   addToFirestore(person: any) {
-    const collectionInstance = collection(this.firestore, 'faxes');
+    const collectionInstance = collection(this.firestore, 'directory');
     addDoc(collectionInstance, person).then(() => {
       console.log("SUCCESS!");
     }).catch(error => {
