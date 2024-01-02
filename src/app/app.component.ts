@@ -56,10 +56,12 @@ export class AppComponent {
   }
 
   async ngOnInit() {
-    // await this.getDirectoryData();
-    // await this.getFaxData();
+    this.authService.checkUserStatus();
 
-    // this.sortArrays();
+    await this.getDirectoryData();
+    await this.getFaxData();
+
+    this.sortArrays();
   }
 
   addToFirestore(person: any) {

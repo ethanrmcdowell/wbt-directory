@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { getAuth, signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'firebase/auth';
 import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -12,7 +12,18 @@ export class AuthService {
   private userAuthenticatedSubject = new BehaviorSubject<boolean>(false);
   userAuthenticated$ = this.userAuthenticatedSubject.asObservable();
 
-  loginUser(email: string, password: string, callback: (response: { success: boolean, message: any }) => void) {
+  checkUserStatus() {
+    this.auth.onAuthStateChanged((user) => {
+      if (user) {
+        this.userAuthenticatedSubject.next(true);
+        this.userEmail = user.email;
+      } else {
+        console.log("No user found.");
+      }
+    })
+  }
+
+  async loginUser(email: string, password: string, callback: (response: { success: boolean, message: any }) => void) {
     signInWithEmailAndPassword(this.auth, email, password)
     .then((userCredential) => {
         this.userAuthenticatedSubject.next(true);
