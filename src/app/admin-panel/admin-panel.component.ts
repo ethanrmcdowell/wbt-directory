@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { AuthService } from '../auth.service';
 
 @Component({
@@ -11,9 +11,12 @@ import { AuthService } from '../auth.service';
 export class AdminPanelComponent {
   constructor(private authService: AuthService) {};
 
+  @Output() onLogout = new EventEmitter<string>();
+
   logoutUser() {
     this.authService.logOutUser((response) => {
       console.log(response);
+      this.onLogout.emit('all');
     });
   }
 }

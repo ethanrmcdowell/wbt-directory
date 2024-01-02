@@ -40,6 +40,7 @@ export class AppComponent {
   searchText: string = "";
   directorySelected: string = "all";
   departments: string[] = ["it", "hr", "police", "fire", "clerk", "treasury"];
+  showAdmin: boolean = false;
   byDepartments: any = {
     it: [],
     police: [],
@@ -56,6 +57,7 @@ export class AppComponent {
   }
 
   async ngOnInit() {
+    this.showAdmin = false;
     this.authService.checkUserStatus();
 
     await this.getDirectoryData();
@@ -110,6 +112,7 @@ export class AppComponent {
       this.formatDepartments(person);
     })
     this.people.sort((a: any, b: any) => a.lname.localeCompare(b.lname));
+    this.showAdmin = true;
   }
 
   formatFax() {
@@ -143,6 +146,13 @@ export class AppComponent {
   sortArrays() {
     this.departments.forEach((dept) => {
       this.byDepartments[dept].sort((a: any, b:any) => a.lname.localeCompare(b.lname));
+    });
+  }
+
+  uponLogout(directory: string) {
+    this.directorySelected = directory;
+    this.snackBar.open('Logged out.', 'Close', {
+      duration: 6000,
     });
   }
 

@@ -30,11 +30,11 @@
   } @else if (directorySelected === 'fax') {
     <app-fax-numbers [faxes]="fax"></app-fax-numbers>
   } @else if (directorySelected === 'admin' && userAuthenticated) {
-    <app-admin-panel></app-admin-panel>
+    <app-admin-panel (onLogout)="uponLogout($event)"></app-admin-panel>
   }
   
 </mat-list>
 
 <div class="admin-container">
-  <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="lock" class="admin-button" (click)="adminDialog()"></mat-icon>
+  <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="lock" class="admin-button" (click)="adminDialog()" *ngIf="this.showAdmin && !this.userAuthenticated"></mat-icon>
 </div>
