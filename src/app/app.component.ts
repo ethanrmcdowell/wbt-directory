@@ -152,7 +152,8 @@ export class AppComponent {
     const dialogRef = this.dialog.open(LoginDialogComponent);
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log(`Dialog result: ${result}`)
+      console.log("User authenticated? " + this.userAuthenticated);
+      console.log("result ->", result);
     })
   }
 }
