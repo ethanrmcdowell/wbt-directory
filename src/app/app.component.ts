@@ -15,6 +15,7 @@ import { MatChipsModule } from '@angular/material/chips';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 import { PersonListComponent } from "./person-list/person-list.component";
 import { AllEmployeesComponent } from "./all-employees/all-employees.component";
@@ -48,17 +49,17 @@ export class AppComponent {
     hr: [],
   };
 
-  constructor(private firestore: Firestore, public dialog: MatDialog, private authService: AuthService) {
+  constructor(private firestore: Firestore, public dialog: MatDialog, private authService: AuthService, private snackBar: MatSnackBar) {
     this.authService.userAuthenticated$.subscribe(isAuthenticated => {
       this.userAuthenticated = isAuthenticated;
     });
   }
 
   async ngOnInit() {
-    await this.getDirectoryData();
-    await this.getFaxData();
+    // await this.getDirectoryData();
+    // await this.getFaxData();
 
-    this.sortArrays();
+    // this.sortArrays();
   }
 
   addToFirestore(person: any) {
@@ -152,8 +153,15 @@ export class AppComponent {
     const dialogRef = this.dialog.open(LoginDialogComponent);
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log("User authenticated? " + this.userAuthenticated);
-      console.log("result ->", result);
+      if (result == 'error') {
+        this.snackBar.open('Error logging in.', 'Close', {
+          duration: 6000,
+        });
+      } else if (result) {
+        this.snackBar.open('Success!', 'Close', {
+          duration: 6000,
+        });
+      }
     })
   }
 }

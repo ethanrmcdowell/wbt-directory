@@ -33,6 +33,7 @@ export class LoginDialogComponent {
         this.dialogRef.close(response.success);
       } else {
         console.log("FAILURE", response);
+        this.dialogRef.close('error');
       }
     })
   }
