@@ -24,9 +24,9 @@
 
 <mat-list>
   @if (directorySelected === 'all') {
-    <app-all-employees [isMobile]="isMobile" [searchText]="searchText" [people]="people"></app-all-employees>
+    <app-all-employees [isMobile]="isMobile" [searchText]="searchText.toLowerCase()" [people]="people"></app-all-employees>
   } @else if (directorySelected === 'department') {
-    <app-department-employees [isMobile]="isMobile" [searchText]="searchText" [byDepartments]="byDepartments"></app-department-employees>
+    <app-department-employees [isMobile]="isMobile" [searchText]="searchText.toLowerCase()" [byDepartments]="byDepartments"></app-department-employees>
   } @else if (directorySelected === 'fax') {
     <app-fax-numbers [faxes]="fax"></app-fax-numbers>
   } @else if (directorySelected === 'admin' && userAuthenticated) {
