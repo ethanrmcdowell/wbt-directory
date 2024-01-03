@@ -262,14 +262,14 @@ export const employeeData = [
         "fname": "Simon",
         "lname": "Parker",
         "telephone": "2484514886",
-        "department": "Facility Operations",
+        "department": "Facilities",
         "email": "SParker@wbtownship.org"
     },
     {
         "fname": "Jason",
         "lname": "Shornak",
         "telephone": "2484515803",
-        "department": "Facility Operations",
+        "department": "Facilities",
         "email": "JShornak@wbtownship.org"
     },
     {
@@ -570,56 +570,56 @@ export const employeeData = [
         "fname": "Edwin",
         "lname": "Haapala",
         "telephone": "2484514785",
-        "department": "Water Utilities",
+        "department": "Water",
         "email": "EHaapala@wbtownship.org"
     },
     {
         "fname": "Justin",
         "lname": "Taylor",
         "telephone": "2484514843",
-        "department": "Water Utilities",
+        "department": "Water",
         "email": "JTaylor@wbtownship.org"
     },
     {
         "fname": "Devin",
         "lname": "Harris",
         "telephone": "2484514789",
-        "department": "Water Utilities",
+        "department": "Water",
         "email": "DHarris@wbtownship.org"
     },
     {
         "fname": "Anthony",
         "lname": "Herron",
         "telephone": "2484514797",
-        "department": "Water Utilities",
+        "department": "Water",
         "email": "AHerron@wbtownship.org"
     },
     {
         "fname": "Scott",
         "lname": "Hungerford",
         "telephone": "2484514783",
-        "department": "Water Utilities",
+        "department": "Water",
         "email": "SHungerford@wbtownship.org"
     },
     {
         "fname": "Nick",
         "lname": "Kutsoginis",
         "telephone": "2484514788",
-        "department": "Water Utilities",
+        "department": "Water",
         "email": "NKutsoginis@wbtownship.org"
     },
     {
         "fname": "Garry",
         "lname": "Simpson",
         "telephone": "2484514784",
-        "department": "Water Utilities",
+        "department": "Water",
         "email": "GSimpson@wbtownship.org"
     },
     {
         "fname": "Tim",
         "lname": "Sobczak",
         "telephone": "2484514837",
-        "department": "Water Utilities",
+        "department": "Water",
         "email": "TSobczak@wbtownship.org"
     },
     {

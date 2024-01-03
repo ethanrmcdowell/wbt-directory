@@ -1,4 +1,11 @@
 <div class="dept-title">
+    <h1>Assessing</h1>
+</div>
+@for (person of this.byDepartments.assessing; track person.telephone) {
+    <app-person-list [searchText]="searchText" [person]="person"></app-person-list>
+}
+
+<div class="dept-title">
     <h1>Clerk</h1>
 </div>
 @for (person of this.byDepartments.clerk; track person.telephone) {
@@ -6,23 +13,79 @@
 }
 
 <div class="dept-title">
-    <h1>Fire</h1>
+    <h1>Code Enforcement</h1>
+</div>
+@for (person of this.byDepartments.code; track person.telephone) {
+    <app-person-list [searchText]="searchText" [person]="person"></app-person-list>
+}
+
+<div class="dept-title">
+    <h1>Development Services</h1>
+</div>
+@for (person of this.byDepartments.pds; track person.telephone) {
+    <app-person-list [searchText]="searchText" [person]="person"></app-person-list>
+}
+
+<div class="dept-title">
+    <h1>Engineering</h1>
+</div>
+@for (person of this.byDepartments.engineering; track person.telephone) {
+    <app-person-list [searchText]="searchText" [person]="person"></app-person-list>
+}
+
+<div class="dept-title">
+    <h1>Environmental</h1>
+</div>
+@for (person of this.byDepartments.environmental; track person.telephone) {
+    <app-person-list [searchText]="searchText" [person]="person"></app-person-list>
+}
+
+<div class="dept-title">
+    <h1>Facilities</h1>
+</div>
+@for (person of this.byDepartments.facilities; track person.telephone) {
+    <app-person-list [searchText]="searchText" [person]="person"></app-person-list>
+}
+
+<div class="dept-title">
+    <h1>Finance</h1>
+</div>
+@for (person of this.byDepartments.finance; track person.telephone) {
+    <app-person-list [searchText]="searchText" [person]="person"></app-person-list>
+}
+
+<div class="dept-title">
+    <h1>Fire Department</h1>
 </div>
 @for (person of this.byDepartments.fire; track person.telephone) {
     <app-person-list [searchText]="searchText" [person]="person"></app-person-list>
 }
 
 <div class="dept-title">
-    <h1>HR</h1>
+    <h1>Human Resources</h1>
 </div>
 @for (person of this.byDepartments.hr; track person.telephone) {
     <app-person-list [searchText]="searchText" [person]="person"></app-person-list>
 }
 
 <div class="dept-title">
-    <h1>IT</h1>
+    <h1>Information Technology</h1>
 </div>
 @for (person of this.byDepartments.it; track person.telephone) {
+    <app-person-list [searchText]="searchText" [person]="person"></app-person-list>
+}
+
+<div class="dept-title">
+    <h1>Inspection</h1>
+</div>
+@for (person of this.byDepartments.inspection; track person.telephone) {
+    <app-person-list [searchText]="searchText" [person]="person"></app-person-list>
+}
+
+<div class="dept-title">
+    <h1>Planning</h1>
+</div>
+@for (person of this.byDepartments.planning; track person.telephone) {
     <app-person-list [searchText]="searchText" [person]="person"></app-person-list>
 }
 
@@ -34,8 +97,43 @@
 }
 
 <div class="dept-title">
-    <h1>Treasury</h1>
+    <h1>Police Records</h1>
 </div>
-@for (person of this.byDepartments.treasury; track person.telephone) {
+@for (person of this.byDepartments.records; track person.telephone) {
+    <app-person-list [searchText]="searchText" [person]="person"></app-person-list>
+}
+
+<div class="dept-title">
+    <h1>Purchasing</h1>
+</div>
+@for (person of this.byDepartments.purchasing; track person.telephone) {
+    <app-person-list [searchText]="searchText" [person]="person"></app-person-list>
+}
+
+<div class="dept-title">
+    <h1>Supervisor's Office</h1>
+</div>
+@for (person of this.byDepartments.supervisor; track person.telephone) {
+    <app-person-list [searchText]="searchText" [person]="person"></app-person-list>
+}
+
+<div class="dept-title">
+    <h1>Treasurer</h1>
+</div>
+@for (person of this.byDepartments.treasurer; track person.telephone) {
+    <app-person-list [searchText]="searchText" [person]="person"></app-person-list>
+}
+
+<div class="dept-title">
+    <h1>Water/Sewer</h1>
+</div>
+@for (person of this.byDepartments.water; track person.telephone) {
+    <app-person-list [searchText]="searchText" [person]="person"></app-person-list>
+}
+
+<div class="dept-title">
+    <h1>Water/Sewer Billing</h1>
+</div>
+@for (person of this.byDepartments.water_billing; track person.telephone) {
     <app-person-list [searchText]="searchText" [person]="person"></app-person-list>
 }

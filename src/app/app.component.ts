@@ -41,15 +41,32 @@ export class AppComponent {
   fax: any = [];
   searchText: string = "";
   directorySelected: string = "all";
-  departments: string[] = ["it", "hr", "police", "fire", "clerk", "treasury"];
+  departments: string[] = ["assessing", "inspection", "building", "clerk", "code", "facilities", "finance",
+    "hr", "it", "pds", "engineering", "environmental", "planning", "purchasing", "supervisor", "treasurer",
+    "water", "water_billing", "fire", "police", "records"];
   showAdmin: boolean = false;
   byDepartments: any = {
-    it: [],
-    police: [],
-    fire: [],
+    assessing: [],
+    inspection: [],
+    building: [],
     clerk: [],
-    treasury: [],
+    code: [],
+    facilities: [],
+    finance: [],
     hr: [],
+    it: [],
+    pds: [],
+    engineering: [],
+    environmental: [],
+    planning: [],
+    purchasing: [],
+    supervisor: [],
+    treasurer: [],
+    water: [],
+    water_billing: [],
+    fire: [],
+    police: [],
+    records: [],
   };
 
   constructor(private firestore: Firestore, public dialog: MatDialog, private authService: AuthService, private snackBar: MatSnackBar) {
@@ -144,8 +161,38 @@ export class AppComponent {
       this.byDepartments.fire.push(person);
     } else if (person.department === 'Clerk') {
       this.byDepartments.clerk.push(person);
-    } else if (person.department === 'Treasury') {
-      this.byDepartments.treasury.push(person);
+    } else if (person.department === 'Treasurer') {
+      this.byDepartments.treasurer.push(person);
+    } else if (person.department === 'Assessing') {
+      this.byDepartments.assessing.push(person);
+    } else if (person.department === 'Building') {
+      this.byDepartments.building.push(person);
+    } else if (person.department === 'Inspection') {
+      this.byDepartments.inspection.push(person);
+    } else if (person.department === 'Code') {
+      this.byDepartments.code.push(person);
+    } else if (person.department === 'Facilities') {
+      this.byDepartments.facilities.push(person);
+    } else if (person.department === 'Finance') {
+      this.byDepartments.finance.push(person);
+    } else if (person.department === 'PDS') {
+      this.byDepartments.pds.push(person);
+    } else if (person.department === 'Engineering') {
+      this.byDepartments.engineering.push(person);
+    } else if (person.department === 'Environmental') {
+      this.byDepartments.environmental.push(person);
+    } else if (person.department === 'Planning') {
+      this.byDepartments.planning.push(person);
+    } else if (person.department === 'Supervisor') {
+      this.byDepartments.supervisor.push(person);
+    } else if (person.department === 'Water') {
+      this.byDepartments.water.push(person);
+    } else if (person.department === 'Water Billing') {
+      this.byDepartments.water_billing.push(person);
+    } else if (person.department === 'Records') {
+      this.byDepartments.records.push(person);
+    } else if (person.department === 'Purchasing') {
+      this.byDepartments.purchasing.push(person);
     }
   }
 
