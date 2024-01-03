@@ -14,5 +14,5 @@ import { MatBadgeModule } from '@angular/material/badge';
 export class PersonListComponent {
   @Input() searchText: string = '';
   @Input() person: any;
-
+  @Input() isMobile: any;
 }

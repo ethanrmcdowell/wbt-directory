@@ -27,6 +27,8 @@ import { LoginDialogComponent } from './login-dialog/login-dialog.component';
 import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { AuthService } from './auth.service';
 
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+
 @Component({
     selector: 'app-root',
     standalone: true,
@@ -36,6 +38,7 @@ import { AuthService } from './auth.service';
 })
 export class AppComponent {
   title = 'wbt-directory';
+  isMobile: boolean = true;
   userAuthenticated: boolean = false;
   people: any = [];
   fax: any = [];
@@ -69,13 +72,17 @@ export class AppComponent {
     records: [],
   };
 
-  constructor(private firestore: Firestore, public dialog: MatDialog, private authService: AuthService, private snackBar: MatSnackBar) {
+  constructor(private BreakpointObserver: BreakpointObserver, private firestore: Firestore, public dialog: MatDialog, private authService: AuthService, private snackBar: MatSnackBar) {
     this.authService.userAuthenticated$.subscribe(isAuthenticated => {
       this.userAuthenticated = isAuthenticated;
     });
   }
 
   async ngOnInit() {
+    this.BreakpointObserver.observe([Breakpoints.Handset]).subscribe(result => {
+      this.isMobile = result.matches;
+    });
+
     this.showAdmin = false;
     this.authService.checkUserStatus();
 

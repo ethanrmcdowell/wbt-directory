@@ -22,8 +22,16 @@ mat-toolbar {
     margin: 10px 0 15px 0;
 }
 
+.mobile-radio {
+    flex-direction: column;
+}
+
 .radio-box mat-radio-button {
     margin: 0 10px 0 10px;
+}
+
+.mobile-search-bar {
+    width: 100%;
 }
 
 .directory-search {

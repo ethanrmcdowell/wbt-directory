@@ -12,4 +12,9 @@ import { CommonModule } from '@angular/common';
 export class AllEmployeesComponent {
   @Input() searchText: string = '';
   @Input() people: any;
+  @Input() isMobile: any;
+
+  ngOnInit() {
+    console.log("isMobile: " + this.isMobile);
+  }
 }

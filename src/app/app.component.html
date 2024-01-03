@@ -1,17 +1,17 @@
 <mat-toolbar>
-  <span class="title-span">
+  <span class="title-span" *ngIf="!isMobile">
     <img class="wbt-logo" src="../assets/logo.png">
   </span>
-  <span>
+  <span *ngIf="!isMobile">
     <h1>WBT Directory</h1>
   </span>
-  <span class="directory-search">
-    <input matInput type="search" placeholder="search employees" [(ngModel)]="searchText" (keydown)="directorySelected = 'all'" name="search">
+  <span class="directory-search" [ngClass]="isMobile ? 'mobile-search-bar' : ''">
+    <input matInput type="search" placeholder="search employees" [(ngModel)]="searchText" (keydown)="directorySelected = 'all'" name="search" [ngClass]="isMobile ? 'mobile-search-bar' : ''">
   </span>
 </mat-toolbar>
 
 <div class="chip-box">
-  <mat-radio-group [(ngModel)]="directorySelected" class="radio-box" (change)="changeDirectory($event)">
+  <mat-radio-group [(ngModel)]="directorySelected" class="radio-box" [ngClass]="isMobile ? 'mobile-radio' : ''" (change)="changeDirectory($event)">
     <mat-radio-button color="warn" value="all">All Employees</mat-radio-button>
     <mat-radio-button color="warn" value="department">Employees by Department</mat-radio-button>
     <mat-radio-button color="warn" value="fax">Fax Numbers</mat-radio-button>
@@ -24,9 +24,9 @@
 
 <mat-list>
   @if (directorySelected === 'all') {
-    <app-all-employees [searchText]="searchText" [people]="people"></app-all-employees>
+    <app-all-employees [isMobile]="isMobile" [searchText]="searchText" [people]="people"></app-all-employees>
   } @else if (directorySelected === 'department') {
-    <app-department-employees [searchText]="searchText" [byDepartments]="byDepartments"></app-department-employees>
+    <app-department-employees [isMobile]="isMobile" [searchText]="searchText" [byDepartments]="byDepartments"></app-department-employees>
   } @else if (directorySelected === 'fax') {
     <app-fax-numbers [faxes]="fax"></app-fax-numbers>
   } @else if (directorySelected === 'admin' && userAuthenticated) {

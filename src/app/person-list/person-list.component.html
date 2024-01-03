@@ -1,15 +1,15 @@
 <mat-list-item *ngIf="person.fname.toLowerCase().includes(searchText) || person.lname.toLowerCase().includes(searchText)">
-    <div class="person-item grid grid-cols-4 gap-4">
+    <div [ngClass]="isMobile ? 'grid-cols-2 gap-2' : 'grid-cols-4 gap-4'" class="person-item grid">
       <span>
         {{ person.lname }}, {{ person.fname }}
       </span>
       <span>
         {{ person.telephone }}
       </span>
-      <span>
+      <span *ngIf="!isMobile">
         {{ person.email }}
       </span>
-      <span class="department-icon">
+      <span *ngIf="!isMobile" class="department-icon">
         {{ person.department }}
       </span>
     </div>

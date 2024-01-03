@@ -12,4 +12,9 @@ import { PersonListComponent } from "../person-list/person-list.component";
 export class DepartmentEmployeesComponent {
   @Input() searchText: string = '';
   @Input() byDepartments: any;
+  @Input() isMobile: any;
+
+  ngOnInit() {
+    console.log("isMobile: " + this.isMobile);
+  }
 }
