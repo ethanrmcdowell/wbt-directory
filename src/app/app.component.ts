@@ -115,6 +115,7 @@ export class AppComponent {
       data = { id, ...data };
       this.people.push(data);
     });
+    console.log(this.people);
     this.formatPhone();
   }
 

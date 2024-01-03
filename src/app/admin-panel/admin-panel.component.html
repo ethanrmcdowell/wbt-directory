@@ -7,65 +7,75 @@
 
 <button class="logout-button" (click)="logoutUser()">Logout</button>
 
-@for (person of this.people; track person.telephone) {
-    <mat-list-item>
-        <div class="grid grid-cols-6 gap-6">
-            @if (!person.edit) {
-                <span>
-                    {{ person.lname }}
-                </span>
-                <span>
-                    {{ person.fname}}
-                </span>
-                <span>
-                    {{ person.telephone }}
-                </span>
-                <span>
-                    {{ person.email }}
-                </span>
-                <span class="department-icon">
-                    {{ person.department }}
-                </span>
-                <span>
-                    <mat-icon fontIcon="edit" class="edit-icon" (click)="person.edit = !person.edit"></mat-icon>
-                    <mat-icon fontIcon="delete"></mat-icon>
-                </span>
-            } @else {
-                <span>
-                    <mat-form-field>
-                        <mat-label>Last Name</mat-label>
-                        <input matInput [(ngModel)]="person.lname">
-                    </mat-form-field>
-                </span>
-                <span>
-                    <mat-form-field>
-                        <mat-label>First Name</mat-label>
-                        <input matInput [(ngModel)]="person.fname">
-                    </mat-form-field>
-                </span>
-                <span>
-                    <mat-form-field>
-                        <mat-label>Telephone</mat-label>
-                        <input matInput [(ngModel)]="person.telephone">
-                    </mat-form-field>
-                </span>
-                <span>
-                    <mat-form-field>
-                        <mat-label>E-mail</mat-label>
-                        <input matInput [(ngModel)]="person.email">
-                    </mat-form-field>
-                </span>
-                <span>
-                    <mat-form-field>
-                        <mat-label>Department</mat-label>
-                        <input matInput [(ngModel)]="person.department">
-                    </mat-form-field>
-                </span>
-                <span>
-                    <mat-icon fontIcon="done" (click)="saveChanges(person)"></mat-icon>
-                </span>
-            }
-        </div>
-    </mat-list-item>
-    <mat-divider></mat-divider>
+@if (currentTab === 'edit') {
+    @for (person of this.people; track person.telephone) {
+        <mat-list-item>
+            <div class="grid grid-cols-6 gap-6">
+                @if (!person.edit) {
+                    <span>
+                        {{ person.lname }}
+                    </span>
+                    <span>
+                        {{ person.fname}}
+                    </span>
+                    <span>
+                        {{ person.telephone }}
+                    </span>
+                    <span>
+                        {{ person.email }}
+                    </span>
+                    <span class="department-icon">
+                        {{ person.department }}
+                    </span>
+                    <span>
+                        <mat-icon fontIcon="edit" class="edit-icon" (click)="person.edit = !person.edit"></mat-icon>
+                        <mat-icon fontIcon="delete"></mat-icon>
+                    </span>
+                } @else {
+                    <span>
+                        <mat-form-field>
+                            <mat-label>Last Name</mat-label>
+                            <input matInput [(ngModel)]="person.lname">
+                        </mat-form-field>
+                    </span>
+                    <span>
+                        <mat-form-field>
+                            <mat-label>First Name</mat-label>
+                            <input matInput [(ngModel)]="person.fname">
+                        </mat-form-field>
+                    </span>
+                    <span>
+                        <mat-form-field>
+                            <mat-label>Telephone</mat-label>
+                            <input matInput [(ngModel)]="person.telephone">
+                        </mat-form-field>
+                    </span>
+                    <span>
+                        <mat-form-field>
+                            <mat-label>E-mail</mat-label>
+                            <input matInput [(ngModel)]="person.email">
+                        </mat-form-field>
+                    </span>
+                    <span>
+                        <mat-form-field>
+                            <mat-label>Department</mat-label>
+                            <mat-select [(ngModel)]="person.department">
+                                @for (dept of this.departments; track dept) {
+                                    <mat-option></mat-option>
+                                }
+                            </mat-select>
+
+                            <!-- <input matInput [(ngModel)]="person.department"> -->
+                        </mat-form-field>
+                    </span>
+                    <span>
+                        <button mat-stroked-button color="warn" class="save-button" (click)="saveChanges(person)">Save</button>
+                    </span>
+                }
+            </div>
+        </mat-list-item>
+        <mat-divider></mat-divider>
+    }
+} @else {
+
 }
