@@ -15,4 +15,13 @@ export class PersonListComponent {
   @Input() searchText: string = '';
   @Input() person: any;
   @Input() isMobile: any;
+
+  formatPhone(phone: any) {
+    let areaCode = phone.substring(0,3);
+    let middleDigits = phone.substring(3,6);
+    let endDigits = phone.substring(6);
+
+    let phoneFormat = "(" + areaCode + ") " + middleDigits + "-" + endDigits;
+    return phoneFormat;
+  }
 }

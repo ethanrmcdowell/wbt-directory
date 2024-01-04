@@ -4,7 +4,7 @@
         {{ person.lname }}, {{ person.fname }}
       </span>
       <span>
-        {{ person.telephone }}
+        {{ formatPhone(person.telephone) }}
       </span>
       <span *ngIf="!isMobile">
         {{ person.email }}

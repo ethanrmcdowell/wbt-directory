@@ -115,8 +115,13 @@ export class AppComponent {
       data = { id, ...data };
       this.people.push(data);
     });
-    console.log(this.people);
-    this.formatPhone();
+    this.people.sort((a: any, b: any) => a.lname.localeCompare(b.lname));
+
+    this.people.forEach((person: any) => {
+      this.formatDepartments(person);
+    });
+
+    this.showAdmin = true;
   }
 
   async getFaxData() {
@@ -130,20 +135,6 @@ export class AppComponent {
       this.fax.push(data);
     });
     this.formatFax();
-  }
-
-  formatPhone() {
-    this.people.forEach((person: any) => {
-      let areaCode = person.telephone.substring(0,3);
-      let middleDigits = person.telephone.substring(3,6);
-      let endDigits = person.telephone.substring(6);
-
-      person.telephone = "(" + areaCode + ") " + middleDigits + "-" + endDigits;
-
-      this.formatDepartments(person);
-    })
-    this.people.sort((a: any, b: any) => a.lname.localeCompare(b.lname));
-    this.showAdmin = true;
   }
 
   formatFax() {
