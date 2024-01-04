@@ -8,7 +8,7 @@
 <button class="logout-button" (click)="logoutUser()">Logout</button>
 
 @if (currentTab === 'edit') {
-    <app-edit-employee [people]="peopleArray"></app-edit-employee>
+    <app-edit-employee [people]="peopleArray" (onUpdate)="employeesUpdated()"></app-edit-employee>
 } @else if (currentTab === 'add') {
-    <app-add-employee></app-add-employee>
+    <app-add-employee (onUpdate)="employeesUpdated()"></app-add-employee>
 }

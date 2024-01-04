@@ -31,7 +31,7 @@
     <app-fax-numbers [faxes]="fax"></app-fax-numbers>
   <!-- } @else if (directorySelected === 'admin' && userAuthenticated) { -->
   } @else if (directorySelected === 'admin') {
-    <app-admin-panel (onLogout)="uponLogout($event)" [people]="people"></app-admin-panel>
+    <app-admin-panel (onLogout)="uponLogout($event)" (onUpdate)="onAdminUpdate()" [people]="people"></app-admin-panel>
   }
   
 </mat-list>

@@ -19,7 +19,7 @@
                 </span>
                 <span>
                     <mat-icon fontIcon="edit" class="edit-icon" (click)="person.edit = !person.edit"></mat-icon>
-                    <mat-icon fontIcon="delete"></mat-icon>
+                    <mat-icon fontIcon="delete" (click)="deleteEmployee(person)"></mat-icon>
                 </span>
             } @else {
                 <span>

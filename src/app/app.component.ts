@@ -86,10 +86,21 @@ export class AppComponent {
     this.showAdmin = false;
     this.authService.checkUserStatus();
 
-    // await this.getDirectoryData();
-    // await this.getFaxData();
+    await this.getDirectoryData();
+    await this.getFaxData();
 
-    // this.sortArrays();
+    this.sortArrays();
+  }
+
+  async onAdminUpdate() {
+    this.directorySelected = 'all'
+
+    this.snackBar.open('Updated employee directory!', 'Close', {
+      duration: 6000,
+    });
+
+    await this.getDirectoryData();
+    this.sortArrays();
   }
 
   addToFirestore(person: any) {
@@ -104,6 +115,8 @@ export class AppComponent {
   async getDirectoryData() {
     const q = collection(this.firestore, 'directory');
     const querySnapshot = await getDocs(q);
+
+    this.people = [];
 
     querySnapshot.forEach(doc => {
       let data = doc.data();
@@ -123,6 +136,8 @@ export class AppComponent {
   async getFaxData() {
     const q = collection(this.firestore, 'faxes');
     const querySnapshot = await getDocs(q);
+
+    this.fax = [];
 
     querySnapshot.forEach(doc => {
       let data = doc.data();

@@ -18,6 +18,7 @@ export class AdminPanelComponent {
   constructor(private authService: AuthService) {};
 
   @Output() onLogout = new EventEmitter<string>();
+  @Output() onUpdate = new EventEmitter<string>();
   @Input() people: any;
 
   currentTab: string = "edit";
@@ -28,6 +29,10 @@ export class AdminPanelComponent {
       let updatePerson = { ...person, "edit": false };
       this.peopleArray.push(updatePerson);
     });
+  }
+
+  employeesUpdated() {
+    this.onUpdate.emit();
   }
 
   logoutUser() {

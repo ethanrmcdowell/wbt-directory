@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 import { Firestore, addDoc, collection, getDocs } from '@angular/fire/firestore';
@@ -9,8 +9,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
-
-import { DbService } from '../db.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-employee',
@@ -20,7 +19,10 @@ import { DbService } from '../db.service';
   styleUrl: './add-employee.component.css'
 })
 export class AddEmployeeComponent {
-  constructor(dbService: DbService, private firestore: Firestore) {};
+  constructor(private firestore: Firestore, private snackBar: MatSnackBar) {};
+
+  @Output() onUpdate = new EventEmitter<string>();
+
   newEmployeeForm = new FormGroup({
     fname: new FormControl('', [Validators.required]),
     lname: new FormControl('', [Validators.required]),
@@ -34,13 +36,13 @@ export class AddEmployeeComponent {
   "Purchasing", "Records", "Supervisor", "Treasurer", "Water", "Water Billing"];
 
   addEmployee() {
-    console.log(this.newEmployeeForm.value);
-
-  //   const collectionInstance = collection(this.firestore, 'directory');
-  //   addDoc(collectionInstance, this.newEmployeeForm).then(() => {
-  //     console.log("SUCCESS!");
-  //   }).catch(error => {
-  //     console.error("Error adding to Firestore:", error);
-  //   })
+    const collectionInstance = collection(this.firestore, 'directory');
+    addDoc(collectionInstance, this.newEmployeeForm.value).then(() => {
+      this.onUpdate.emit();
+    }).catch(error => {
+      this.snackBar.open('Error!', 'Close', {
+        duration: 6000,
+      });
+    });
   }
 }

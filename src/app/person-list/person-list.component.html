@@ -1,4 +1,4 @@
-<mat-list-item *ngIf="person.fname.toLowerCase().includes(searchText.toLowerCase()) || person.lname.toLowerCase().includes(searchText)">
+<mat-list-item class="list-item" *ngIf="person.fname.toLowerCase().includes(searchText.toLowerCase()) || person.lname.toLowerCase().includes(searchText)">
     <div [ngClass]="isMobile ? 'grid-cols-2 gap-2' : 'grid-cols-4 gap-4'" class="person-item grid">
       <span>
         {{ person.lname }}, {{ person.fname }}

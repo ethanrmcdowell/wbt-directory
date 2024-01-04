@@ -8,3 +8,7 @@
     margin-left: 50%;
     text-align: center;
 }
+
+.list-item:hover {
+    background-color: #F9E8D9;
+}

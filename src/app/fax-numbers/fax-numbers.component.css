@@ -9,3 +9,7 @@
 .fax-header h1 {
     font-size: 22px;
 }
+
+.list-item:hover {
+    background-color: #F9E8D9;
+}
