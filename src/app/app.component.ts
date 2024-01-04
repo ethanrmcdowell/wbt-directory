@@ -86,14 +86,10 @@ export class AppComponent {
     this.showAdmin = false;
     this.authService.checkUserStatus();
 
-    // employeeData.forEach(person => {
-    //   this.addToFirestore(person);
-    // });
+    // await this.getDirectoryData();
+    // await this.getFaxData();
 
-    await this.getDirectoryData();
-    await this.getFaxData();
-
-    this.sortArrays();
+    // this.sortArrays();
   }
 
   addToFirestore(person: any) {

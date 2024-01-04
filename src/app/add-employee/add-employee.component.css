@@ -1,0 +1,24 @@
+.add-title {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 10px 0 15px 0;
+}
+
+.add-card {
+    width: 50%;
+    margin: auto;
+    padding:25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-card div {
+    flex-direction: row;
+}
+
+.add-card div mat-form-field {
+    margin: 5px;
+}

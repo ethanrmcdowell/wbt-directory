@@ -1,0 +1,39 @@
+<div class="add-title">
+    <h1>Add Employee</h1>
+</div>
+
+<mat-card class="add-card" [formGroup]="newEmployeeForm">
+    <div>
+        <mat-form-field>
+            <mat-label>First Name</mat-label>
+            <input matInput formControlName="fname">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Last Name</mat-label>
+            <input matInput formControlName="lname">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field>
+            <mat-label>Telephone</mat-label>
+            <input matInput formControlName="telephone" maxlength="10">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>E-mail</mat-label>
+            <input matInput formControlName="email">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field>
+            <mat-label>Department</mat-label>
+            <mat-select formControlName="department">
+                @for (dept of this.departments; track dept) {
+                    <mat-option value="{{ dept }}">{{ dept }}</mat-option>
+                }
+            </mat-select>
+        </mat-form-field>
+    </div>
+    <div>
+        <button mat-raised-button color="warn" (click)="addEmployee()" [disabled]="!newEmployeeForm.valid">Add Employee</button>
+    </div>
+</mat-card>

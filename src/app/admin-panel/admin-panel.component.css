@@ -15,33 +15,3 @@
     align-items: center;
     margin: 10px 0 15px 0;
 }
-
-.department-icon {
-    background-color: coral;
-    color: white;
-    border-radius: 25px;
-    font-size: 12px;
-    padding: 5px;
-    width: 110px;
-    margin-left: 50%;
-    text-align: center;
-}
-
-.edit-icon {
-    margin-right: 20px;
-    margin-left: 25px;
-}
-
-mat-list-item {
-    margin-left: 25px;
-    margin-top: 10px;
-    height: 65px !important;
-}
-
-.save-button {
-    margin-top: 10px;
-}
-
-mat-icon:hover {
-    color: coral;
-}
