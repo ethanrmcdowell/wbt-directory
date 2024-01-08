@@ -1,27 +1,64 @@
+<a name="readme-top"></a>
+
+[![MIT License][license-shield]][license-url]
+
 # WbtDirectory
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.7.
+A directory of employees for West Bloomfield Township's town hall.
 
-## Development server
+## About This Project
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+[![Directory Screenshot][directory-screenshot]](https://wbt-directory.web.app/)
 
-## Code scaffolding
+I created this project as the IT department was using a PDF to keep track of and distribute the employee directory to the entire townhall staff. My main goals were to save time distributing the data to staff and to ensure accuracy, as people would occasionally refer to outdated PDFs saved locally rather than always using the most up-to-date version sent out when a new employee was added.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Features:
 
-## Build
+* Allows users to search employees by first or last name.
+* Separate tab for department fax numbers and to view employees by department.
+* Admin panel which allows authenticated users to add, delete, and edit employees and their information.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
 
-## Running unit tests
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## Technologies
 
-## Running end-to-end tests
+[![Angular][Angular.io]][Angular-url]
+[![Firebase][Firebase-icon]][Firebase-url]
+[![Angular Material UI][Material-icon]][Material-url]
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
 
-## Further help
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+## Usage
+
+Basic usage is straight-forward. Search input in the navigation bar allows users to search the list of all employees by first or last name. Login page for administrative users is accessed by clicking the lock icon at the very bottom-left corner of the page (scroll down). Once the user has been authenticated, an administrative panel option will be added to the radio buttons which will allow the user to edit existing, delete, and add new employees.
+
+After editing or adding anyone to the directory, the application will reroute you to the "all employees" tab and reload the data.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## Contact
+
+Ethan McDowell - ethan.r.mcdowell@gmail.com
+
+Live Project: https://wbt-directory.web.app/
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+## License
+
+Distributed under the MIT License. See `LICENSE.txt` for more information.
+
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+
+[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
+[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
+[directory-screenshot]: ./src/assets/app-example.PNG
+[Angular.io]: https://img.shields.io/badge/Angular-DD0031?style=for-the-badge&logo=angular&logoColor=white
+[Angular-url]: https://angular.io/
+[Firebase-icon]: https://img.shields.io/badge/firebase-ffca28?style=for-the-badge&logo=firebase&logoColor=black
+[Firebase-url]: https://firebase.google.com/
+[Material-icon]: https://img.shields.io/badge/Material%20UI-007FFF?style=for-the-badge&logo=mui&logoColor=white
+[Material-url]: https://material.angular.io/
