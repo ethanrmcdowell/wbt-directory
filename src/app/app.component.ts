@@ -1,10 +1,7 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterOutlet } from '@angular/router';
 
 import { employeeData } from '../assets/employees';
-
-import { Firestore, addDoc, collection, getDocs } from '@angular/fire/firestore';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
@@ -28,6 +25,7 @@ import { AdminPanelComponent } from './admin-panel/admin-panel.component';
 import { AuthService } from './auth.service';
 
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { DataService } from './data.service';
 
 @Component({
     selector: 'app-root',
@@ -72,7 +70,7 @@ export class AppComponent {
     records: [],
   };
 
-  constructor(private BreakpointObserver: BreakpointObserver, private firestore: Firestore, public dialog: MatDialog, private authService: AuthService, private snackBar: MatSnackBar) {
+  constructor(private BreakpointObserver: BreakpointObserver, private dataService: DataService, public dialog: MatDialog, private authService: AuthService, private snackBar: MatSnackBar) {
     this.authService.userAuthenticated$.subscribe(isAuthenticated => {
       this.userAuthenticated = isAuthenticated;
     });
@@ -104,27 +102,11 @@ export class AppComponent {
   }
 
   addToFirestore(person: any) {
-    const collectionInstance = collection(this.firestore, 'directory');
-    addDoc(collectionInstance, person).then(() => {
-      console.log("SUCCESS!");
-    }).catch(error => {
-      console.error("Error adding to Firestore:", error);
-    })
+    this.dataService.addEmployee(person);
   }
 
   async getDirectoryData() {
-    const q = collection(this.firestore, 'directory');
-    const querySnapshot = await getDocs(q);
-
-    this.people = [];
-
-    querySnapshot.forEach(doc => {
-      let data = doc.data();
-      const id = doc.id;
-      data = { id, ...data };
-      this.people.push(data);
-    });
-    this.people.sort((a: any, b: any) => a.lname.localeCompare(b.lname));
+    this.people = await this.dataService.getDirectoryData();
 
     this.people.forEach((person: any) => {
       this.formatDepartments(person);
@@ -134,21 +116,8 @@ export class AppComponent {
   }
 
   async getFaxData() {
-    const q = collection(this.firestore, 'faxes');
-    const querySnapshot = await getDocs(q);
+    this.fax =  await this.dataService.getFaxData();
 
-    this.fax = [];
-
-    querySnapshot.forEach(doc => {
-      let data = doc.data();
-      const id = doc.id;
-      data = { id, ...data };
-      this.fax.push(data);
-    });
-    this.formatFax();
-  }
-
-  formatFax() {
     this.fax.forEach((faxNum: any) => {
       let areaCode = faxNum.number.substring(0,3);
       let middleDigits = faxNum.number.substring(3,6);

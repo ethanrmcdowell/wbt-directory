@@ -1,8 +1,6 @@
 import { Component, EventEmitter, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-import { Firestore, addDoc, collection, getDocs } from '@angular/fire/firestore';
-
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
@@ -10,6 +8,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-add-employee',
@@ -19,7 +18,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
   styleUrl: './add-employee.component.css'
 })
 export class AddEmployeeComponent {
-  constructor(private firestore: Firestore, private snackBar: MatSnackBar) {};
+  constructor(private dataSevice: DataService, private snackBar: MatSnackBar) {};
 
   @Output() onUpdate = new EventEmitter<string>();
 
@@ -35,9 +34,8 @@ export class AddEmployeeComponent {
   "Facilities", "Finance", "Fire", "HR", "Inspection", "IT", "PDS", "Planning", "Police",
   "Purchasing", "Records", "Supervisor", "Treasurer", "Water", "Water Billing"];
 
-  addEmployee() {
-    const collectionInstance = collection(this.firestore, 'directory');
-    addDoc(collectionInstance, this.newEmployeeForm.value).then(() => {
+  async addEmployee() {
+    this.dataSevice.addEmployee(this.newEmployeeForm.value).then(async res => {
       this.onUpdate.emit();
     }).catch(error => {
       this.snackBar.open('Error!', 'Close', {

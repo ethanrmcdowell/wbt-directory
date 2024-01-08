@@ -8,7 +8,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
-import { Firestore, deleteDoc, doc } from '@angular/fire/firestore';
+import { DataService } from '../data.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-edit-employee',
@@ -18,7 +19,7 @@ import { Firestore, deleteDoc, doc } from '@angular/fire/firestore';
   styleUrl: './edit-employee.component.css'
 })
 export class EditEmployeeComponent {
-  constructor(private firestore: Firestore) {};
+  constructor(private dataService: DataService, private snackBar: MatSnackBar) {};
 
   @Input() people: any;
   @Output() onUpdate = new EventEmitter<string>();
@@ -26,30 +27,36 @@ export class EditEmployeeComponent {
   "Facilities", "Finance", "Fire", "HR", "Inspection", "IT", "PDS", "Planning", "Police",
   "Purchasing", "Records", "Supervisor", "Treasurer", "Water", "Water Billing"];
 
-  ngOnInit() {
-    console.log("people ->", this.people);
-  }
+  async saveChanges(person: any) {
+    const updatedEmployee = {
+      fname: person.fname,
+      lname: person.lname,
+      department: person.department,
+      telephone: person.telephone,
+      email: person.email,
+    }
 
-  saveChanges(person: any) {
-    console.log("updated employee ->", person);
-    person.edit = !person.edit;
-
-    this.onAdminUpdate();
+    this.dataService.updateEmployee(updatedEmployee, person.id).then(async => {
+      this.onUpdate.emit();
+      person.edit = !person.edit;
+    }).catch(error => {
+      console.error(error);
+      this.snackBar.open('Error - unable to update!', 'Close', {
+        duration: 6000,
+      });
+    })
   }
 
   deleteEmployee(person: any) {
     if (window.confirm("Are you sure you'd like to delete employee " + person.fname + " " + person.lname + "?")) {
-      const docInstance = doc(this.firestore, 'directory', person.id);
-      deleteDoc(docInstance).then(() => {
-        console.log('deleted');
-        this.onAdminUpdate();
-      }).catch((error) => {
+      this.dataService.deleteEmployee(person).then((async) => {
+        this.onUpdate.emit();
+      }).catch(error => {
         console.error(error);
-      });
+        this.snackBar.open('Error - unable to delete!', 'Close', {
+          duration: 6000,
+        });
+      })
     }
-  }
-
-  onAdminUpdate() {
-    this.onUpdate.emit();
   }
 }
