@@ -30,8 +30,8 @@ export class AddEmployeeComponent {
     department: new FormControl('', [Validators.required])
   });
 
-  departments = ["Assessing", "Building", "Clerk", "Code", "Engineering", "Environmental",
-  "Facilities", "Finance", "Fire", "HR", "Inspection", "IT", "PDS", "Planning", "Police",
+  departments = ["Assessing", "Building", "Budget", "Clerk", "Code", "Engineering", "Environmental",
+  "Facilities", "Finance", "Fire", "HR", "Inspection", "IT", "PDS", "Payroll", "Planning", "Police",
   "Purchasing", "Records", "Supervisor", "Treasurer", "Water", "Water Billing"];
 
   async addEmployee() {

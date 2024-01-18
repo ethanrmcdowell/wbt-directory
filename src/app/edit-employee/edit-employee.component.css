@@ -53,6 +53,7 @@ mat-icon:hover {
         &::placeholder {
             color: coral;
             opacity: 0.5;
+            padding-left: 10px;
         }
     }
 }

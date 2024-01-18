@@ -42,13 +42,14 @@ export class AppComponent {
   fax: any = [];
   searchText: string = "";
   directorySelected: string = "all";
-  departments: string[] = ["assessing", "inspection", "building", "clerk", "code", "facilities", "finance",
+  departments: string[] = ["assessing", "inspection", "building", "budget", "clerk", "code", "facilities", "finance",
     "hr", "it", "pds", "engineering", "environmental", "planning", "purchasing", "supervisor", "treasurer",
-    "water", "water_billing", "fire", "police", "records"];
+    "water", "water_billing", "fire", "payroll", "police", "records"];
   showAdmin: boolean = false;
   byDepartments: any = {
     assessing: [],
     inspection: [],
+    budget: [],
     building: [],
     clerk: [],
     code: [],
@@ -59,6 +60,7 @@ export class AppComponent {
     pds: [],
     engineering: [],
     environmental: [],
+    payroll: [],
     planning: [],
     purchasing: [],
     supervisor: [],
@@ -147,6 +149,8 @@ export class AppComponent {
       this.byDepartments.assessing.push(person);
     } else if (person.department === 'Building') {
       this.byDepartments.building.push(person);
+    } else if (person.department === 'Budget') {
+      this.byDepartments.budget.push(person);
     } else if (person.department === 'Inspection') {
       this.byDepartments.inspection.push(person);
     } else if (person.department === 'Code') {
@@ -173,6 +177,8 @@ export class AppComponent {
       this.byDepartments.records.push(person);
     } else if (person.department === 'Purchasing') {
       this.byDepartments.purchasing.push(person);
+    } else if (person.department === 'Payroll') {
+      this.byDepartments.payroll.push(person);
     }
   }
 

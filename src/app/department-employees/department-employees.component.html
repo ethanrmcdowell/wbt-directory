@@ -6,6 +6,20 @@
 }
 
 <div class="dept-title">
+    <h1>Building</h1>
+</div>
+@for (person of this.byDepartments.building; track person.telephone) {
+    <app-person-list [isMobile]="isMobile" [searchText]="searchText" [person]="person"></app-person-list>
+}
+
+<div class="dept-title">
+    <h1>Budget</h1>
+</div>
+@for (person of this.byDepartments.budget; track person.telephone) {
+    <app-person-list [isMobile]="isMobile" [searchText]="searchText" [person]="person"></app-person-list>
+}
+
+<div class="dept-title">
     <h1>Clerk</h1>
 </div>
 @for (person of this.byDepartments.clerk; track person.telephone) {
@@ -79,6 +93,13 @@
     <h1>Inspection</h1>
 </div>
 @for (person of this.byDepartments.inspection; track person.telephone) {
+    <app-person-list [isMobile]="isMobile" [searchText]="searchText" [person]="person"></app-person-list>
+}
+
+<div class="dept-title">
+    <h1>Payroll</h1>
+</div>
+@for (person of this.byDepartments.payroll; track person.telephone) {
     <app-person-list [isMobile]="isMobile" [searchText]="searchText" [person]="person"></app-person-list>
 }
 
