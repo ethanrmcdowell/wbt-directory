@@ -24,6 +24,10 @@ mat-list-item {
     margin-top: 10px;
 }
 
+.cancel-button {
+    margin-left: 5px;
+}
+
 mat-icon:hover {
     color: coral;
 }
