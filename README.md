@@ -14,7 +14,7 @@ I created this project as the IT department was using a PDF to keep track of and
 
 ### Features:
 
-* Allows users to search employees by first or last name.
+* Allows users to search employees by first/last name, telephone number, or e-mail address.
 * Separate tab for department fax numbers and to view employees by department.
 * Admin panel which allows authenticated users to add, delete, and edit employees and their information.
 
