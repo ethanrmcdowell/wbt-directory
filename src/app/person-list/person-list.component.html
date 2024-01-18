@@ -1,17 +1,17 @@
-<mat-list-item class="list-item" *ngIf="person.fname.toLowerCase().includes(searchText.toLowerCase()) || person.lname.toLowerCase().includes(searchText)">
-    <div [ngClass]="isMobile ? 'grid-cols-2 gap-2' : 'grid-cols-4 gap-4'" class="person-item grid">
-      <span>
-        {{ person.lname }}, {{ person.fname }}
-      </span>
-      <span>
-        {{ formatPhone(person.telephone) }}
-      </span>
-      <span *ngIf="!isMobile">
-        {{ person.email }}
-      </span>
-      <span *ngIf="!isMobile" class="department-icon">
-        {{ person.department }}
-      </span>
-    </div>
-  </mat-list-item>
-  <mat-divider *ngIf="person.fname.toLowerCase().includes(searchText) || person.lname.toLowerCase().includes(searchText)"></mat-divider>
+<mat-list-item class="list-item" *ngIf="person.fname.toLowerCase().includes(searchText.toLowerCase()) || person.lname.toLowerCase().includes(searchText) || person.telephone.includes(searchText) || person.email.toLowerCase().includes(searchText) || person.department.toLowerCase().includes(searchText)">
+  <div [ngClass]="isMobile ? 'grid-cols-2 gap-2' : 'grid-cols-4 gap-4'" class="person-item grid">
+    <span>
+      {{ person.lname }}, {{ person.fname }}
+    </span>
+    <span>
+      {{ formatPhone(person.telephone) }}
+    </span>
+    <span *ngIf="!isMobile">
+      {{ person.email }}
+    </span>
+    <span *ngIf="!isMobile" class="department-icon">
+      {{ person.department }}
+    </span>
+  </div>
+</mat-list-item>
+<mat-divider *ngIf="person.fname.toLowerCase().includes(searchText.toLowerCase()) || person.lname.toLowerCase().includes(searchText) || person.telephone.includes(searchText) || person.email.toLowerCase().includes(searchText) || person.department.toLowerCase().includes(searchText)"></mat-divider>

@@ -10,11 +10,12 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { DataService } from '../data.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-edit-employee',
   standalone: true,
-  imports: [FormsModule, MatButtonModule, MatSelectModule, MatRadioModule, MatListModule, MatIconModule, MatInputModule, MatFormFieldModule],
+  imports: [CommonModule, FormsModule, MatButtonModule, MatSelectModule, MatRadioModule, MatListModule, MatIconModule, MatInputModule, MatFormFieldModule],
   templateUrl: './edit-employee.component.html',
   styleUrl: './edit-employee.component.css'
 })
@@ -26,6 +27,7 @@ export class EditEmployeeComponent {
   departments = ["Assessing", "Building", "Clerk", "Code", "Engineering", "Environmental",
   "Facilities", "Finance", "Fire", "HR", "Inspection", "IT", "PDS", "Planning", "Police",
   "Purchasing", "Records", "Supervisor", "Treasurer", "Water", "Water Billing"];
+  searchAdmin: string = '';
 
   async saveChanges(person: any) {
     const updatedEmployee = {

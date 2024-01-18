@@ -112,6 +112,7 @@ export class AppComponent {
       this.formatDepartments(person);
     });
 
+    console.log(this.people);
     this.showAdmin = true;
   }
 

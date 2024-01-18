@@ -15,6 +15,6 @@ export class DepartmentEmployeesComponent {
   @Input() isMobile: any;
 
   ngOnInit() {
-    console.log("isMobile: " + this.isMobile);
+    console.log(this.byDepartments);
   }
 }

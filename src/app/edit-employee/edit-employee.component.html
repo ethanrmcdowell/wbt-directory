@@ -1,5 +1,9 @@
+<div class="search-container">
+    <input matInput type="search" placeholder="Search" [(ngModel)]="searchAdmin">
+</div>
+
 @for (person of this.people; track person.telephone) {
-    <mat-list-item>
+    <mat-list-item *ngIf="person.fname.toLowerCase().includes(searchAdmin.toLowerCase()) || person.lname.toLowerCase().includes(searchAdmin) || person.telephone.includes(searchAdmin) || person.email.toLowerCase().includes(searchAdmin.toLowerCase()) || person.department.toLowerCase().includes(searchAdmin.toLowerCase())">
         <div class="grid grid-cols-6 gap-6">
             @if (!person.edit) {
                 <span>
@@ -62,5 +66,5 @@
             }
         </div>
     </mat-list-item>
-    <mat-divider></mat-divider>
+    <mat-divider *ngIf="person.fname.toLowerCase().includes(searchAdmin.toLowerCase()) || person.lname.toLowerCase().includes(searchAdmin) || person.telephone.includes(searchAdmin) || person.email.toLowerCase().includes(searchAdmin.toLowerCase()) || person.lname.toLowerCase().includes(searchAdmin) || person.telephone.includes(searchAdmin) || person.email.toLowerCase().includes(searchAdmin.toLowerCase()) || person.department.toLowerCase().includes(searchAdmin.toLowerCase())"></mat-divider>
 }

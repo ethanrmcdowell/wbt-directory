@@ -15,7 +15,7 @@
 }
 
 mat-list-item {
-    margin-left: 25px;
+    padding-left: 25px;
     margin-top: 10px;
     height: 65px !important;
 }
@@ -26,4 +26,29 @@ mat-list-item {
 
 mat-icon:hover {
     color: coral;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+    padding: 10px;
+
+    input {
+        color: coral;
+        border: 2px solid coral;
+        border-radius: 25px;
+        padding: 10px;
+        width: 300px;
+
+        &:focus {
+            outline: none;
+        }
+
+        &::placeholder {
+            color: coral;
+            opacity: 0.5;
+        }
+    }
 }
