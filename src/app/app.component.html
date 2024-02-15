@@ -15,9 +15,9 @@
     <mat-radio-button color="warn" value="all">All Employees</mat-radio-button>
     <mat-radio-button color="warn" value="department">Employees by Department</mat-radio-button>
     <mat-radio-button color="warn" value="fax">Fax Numbers</mat-radio-button>
-    <!-- @if (userAuthenticated) { -->
+    @if (userAuthenticated) {
       <mat-radio-button color="warn" value="admin">Admin Panel</mat-radio-button>
-    <!-- } -->
+    }
   </mat-radio-group>
 </div>
 
@@ -29,8 +29,8 @@
     <app-department-employees [isMobile]="isMobile" [searchText]="searchText.toLowerCase()" [byDepartments]="byDepartments"></app-department-employees>
   } @else if (directorySelected === 'fax') {
     <app-fax-numbers [faxes]="fax"></app-fax-numbers>
-  <!-- } @else if (directorySelected === 'admin' && userAuthenticated) { -->
-  } @else if (directorySelected === 'admin') {
+  } @else if (directorySelected === 'admin' && userAuthenticated) {
+  <!-- } @else if (directorySelected === 'admin') { -->
     <app-admin-panel (onLogout)="uponLogout($event)" (onUpdate)="onAdminUpdate()" [people]="people"></app-admin-panel>
   }
   
