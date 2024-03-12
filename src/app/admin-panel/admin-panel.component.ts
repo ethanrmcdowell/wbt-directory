@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, OnChanges } from '@angular/core';
 
 import { AuthService } from '../auth.service';
 import { EditEmployeeComponent } from '../edit-employee/edit-employee.component';
@@ -26,13 +26,19 @@ export class AdminPanelComponent {
   searchAdmin: string = "";
 
   ngOnInit() {
+    this.peopleArray = [];
     this.people.forEach((person: any) => {
       let updatePerson = { ...person, "edit": false };
       this.peopleArray.push(updatePerson);
     });
   }
 
+  ngOnChanges() {
+    this.ngOnInit();
+  }
+
   employeesUpdated() {
+    console.log("Employees updated (admin-panel.component.ts)");
     this.onUpdate.emit();
   }
 

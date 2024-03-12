@@ -35,7 +35,7 @@ export class AddEmployeeComponent {
   "Purchasing", "Records", "Supervisor", "Treasurer", "Water", "Water Billing"];
 
   async addEmployee() {
-    this.dataSevice.addEmployee(this.newEmployeeForm.value).then(async res => {
+    this.dataSevice.addEmployee(this.newEmployeeForm.value).then(() => {
       this.onUpdate.emit();
     }).catch(error => {
       this.snackBar.open('Error!', 'Close', {

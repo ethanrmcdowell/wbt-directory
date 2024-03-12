@@ -29,6 +29,10 @@ export class EditEmployeeComponent {
   "Purchasing", "Records", "Supervisor", "Treasurer", "Water", "Water Billing"];
   searchAdmin: string = '';
 
+  // ngOnInit() {
+  //   console.log("INIT -> PEOPLE", this.people);
+  // }
+
   async saveChanges(person: any) {
     const updatedEmployee = {
       fname: person.fname,
@@ -51,7 +55,7 @@ export class EditEmployeeComponent {
 
   deleteEmployee(person: any) {
     if (window.confirm("Are you sure you'd like to delete employee " + person.fname + " " + person.lname + "?")) {
-      this.dataService.deleteEmployee(person).then((async) => {
+      this.dataService.deleteEmployee(person).then(() => {
         this.onUpdate.emit();
       }).catch(error => {
         console.error(error);

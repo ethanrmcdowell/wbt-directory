@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { employeeData } from '../assets/employees';
@@ -76,7 +76,7 @@ export class AppComponent {
     this.authService.userAuthenticated$.subscribe(isAuthenticated => {
       this.userAuthenticated = isAuthenticated;
     });
-  }
+  } 
 
   async ngOnInit() {
     this.BreakpointObserver.observe([Breakpoints.Handset]).subscribe(result => {
@@ -93,8 +93,6 @@ export class AppComponent {
   }
 
   async onAdminUpdate() {
-    this.directorySelected = 'all'
-
     this.snackBar.open('Updated employee directory!', 'Close', {
       duration: 6000,
     });
@@ -108,6 +106,7 @@ export class AppComponent {
   }
 
   async getDirectoryData() {
+    this.people = [];
     this.people = await this.dataService.getDirectoryData();
 
     this.people.forEach((person: any) => {
