@@ -34,7 +34,7 @@ I created this project as the IT department was using a PDF to keep track of and
 
 Search input in the navigation bar allows users to search the list of all employees by first/last name, phone number, or e-mail. Login page for administrative users is accessed by clicking the lock icon at the very bottom-left corner of the page (scroll down). Once the user has been authenticated, an administrative panel option will be added to the radio buttons which will allow the user to edit existing, delete, and add new employees.
 
-After editing or adding anyone to the directory, the application will reroute you to the "all employees" tab and reload the data.
+After editing or adding anyone to the directory, the application will fetch the updated data, allowing you to view any changes immediately.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
