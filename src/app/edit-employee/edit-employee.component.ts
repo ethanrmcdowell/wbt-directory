@@ -57,6 +57,7 @@ export class EditEmployeeComponent {
     if (window.confirm("Are you sure you'd like to delete employee " + person.fname + " " + person.lname + "?")) {
       this.dataService.deleteEmployee(person).then(() => {
         this.onUpdate.emit();
+        this.searchAdmin = "";
       }).catch(error => {
         console.error(error);
         this.snackBar.open('Error - unable to delete!', 'Close', {

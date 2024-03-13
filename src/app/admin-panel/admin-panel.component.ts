@@ -23,7 +23,6 @@ export class AdminPanelComponent {
 
   currentTab: string = "edit";
   peopleArray: any = [];
-  searchAdmin: string = "";
 
   ngOnInit() {
     this.peopleArray = [];
