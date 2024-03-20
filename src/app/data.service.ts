@@ -50,7 +50,6 @@ export class DataService {
   }
 
   async updateEmployee(person: any, id: any) {
-    console.log(person);
     const documentInstance: any = doc(this.firestore, 'directory', id);
     await updateDoc(documentInstance, person).then(() => {
       return;
@@ -66,5 +65,14 @@ export class DataService {
     }).catch(error => {
       console.error(error);
     });
+  }
+
+  async updateFax(fax: any, id: any) {
+    const documentInstance: any = doc(this.firestore, 'faxes', id);
+    await updateDoc(documentInstance, fax).then(() => {
+      return;
+    }).catch(error => {
+      console.error(error);
+    })
   }
 }

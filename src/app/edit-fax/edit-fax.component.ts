@@ -35,6 +35,15 @@ export class EditFaxComponent {
   }
 
   saveChanges(fax: any) {
-    console.log(fax);
+    let updatedFax = {
+      name: fax.name,
+      number: fax.number,
+    }
+
+    this.dataService.updateFax(updatedFax, fax.id).then(() => {
+      console.log("Success!");
+    }).catch(error => {
+      console.error(error);
+    })
   }
 }
