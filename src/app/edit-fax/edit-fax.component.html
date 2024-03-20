@@ -1,0 +1,36 @@
+@for (fax of this.faxes; track fax.id) {
+    <mat-list-item>
+        <div class="grid grid-cols-3 gap-3">
+            @if (!fax.edit) {
+                <span>
+                    {{ fax.name }}
+                </span>
+                <span>
+                    {{ fax.number }}
+                </span>
+                <span>
+                    <mat-icon fontIcon="edit" class="edit-icon" (click)="fax.edit = !fax.edit"></mat-icon>
+                    <mat-icon fontIcon="delete" (click)="deleteFax(fax)"></mat-icon>
+                </span>
+            } @else {
+                <span>
+                    <mat-form-field>
+                        <mat-label>Name</mat-label>
+                        <input matInput [(ngModel)]="fax.name">
+                    </mat-form-field>
+                </span>
+                <span>
+                    <mat-form-field>
+                        <mat-label>Fax Number</mat-label>
+                        <input matInput [(ngModel)]="fax.number">
+                    </mat-form-field>
+                </span>
+                <span>
+                    <button mat-stroked-button color="warn" class="save-button" (click)="saveChanges(fax)">Save</button>
+                    <button mat-stroked-button color="primary" class="cancel-button save-button" (click)="fax.edit = !fax.edit">Cancel</button>
+                </span>
+            }
+        </div>
+    </mat-list-item>
+    <mat-divider></mat-divider>
+}

@@ -1,0 +1,26 @@
+mat-list-item {
+    padding-left: 25px;
+    padding-top: 25px;
+    height: 65px !important;
+}
+
+mat-list-item:hover {
+    background-color: #F9E8D9;
+}
+
+mat-icon:hover {
+    color: coral;
+}
+
+.save-button {
+    margin-top: 10px;
+}
+
+.cancel-button {
+    margin-left: 5px;
+}
+
+.edit-icon {
+    margin-right: 20px;
+    margin-left: 25px;
+}

@@ -1,7 +1,9 @@
 <div>
     <mat-radio-group [(ngModel)]="currentTab" class="radio-box">
-        <mat-radio-button color="warn" value="edit">Edit</mat-radio-button>
-        <mat-radio-button color="warn" value="add">Add</mat-radio-button>
+        <mat-radio-button color="warn" value="edit">Edit Employees</mat-radio-button>
+        <mat-radio-button color="warn" value="add">Add Employee</mat-radio-button>
+        <mat-radio-button color="warn" value="editFax">Edit Faxes</mat-radio-button>
+        <mat-radio-button color="warn" value="addFax">Add Fax</mat-radio-button>
     </mat-radio-group>
 </div>
 
@@ -11,4 +13,8 @@
     <app-edit-employee [people]="peopleArray" (onUpdate)="employeesUpdated()"></app-edit-employee>
 } @else if (currentTab === 'add') {
     <app-add-employee (onUpdate)="employeesUpdated()"></app-add-employee>
+} @else if (currentTab === 'editFax') {
+    <app-edit-fax [faxes]="faxArray"></app-edit-fax>
+} @else if (currentTab === 'addFax') {
+    <app-add-fax></app-add-fax>
 }
