@@ -84,4 +84,13 @@ export class DataService {
       console.error(error);
     })
   }
+
+  async deleteFax(fax: any) {
+    const documentInstance: any = doc(this.firestore, 'faxes', fax.id);
+    await deleteDoc(documentInstance).then(() => {
+      return;
+    }).catch(error => {
+      console.error(error);
+    });
+  }
 }

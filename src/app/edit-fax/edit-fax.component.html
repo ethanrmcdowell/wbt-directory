@@ -1,5 +1,9 @@
+<div class="search-container">
+    <input matInput type="search" placeholder="Search" [(ngModel)]="searchFax">
+</div>
+
 @for (fax of this.faxes; track fax.id) {
-    <mat-list-item>
+    <mat-list-item *ngIf="fax.name.toLowerCase().includes(searchFax.toLowerCase()) || fax.number.includes(searchFax)">
         <div class="grid grid-cols-4 gap-4">
             @if (!fax.edit) {
                 <span>
@@ -34,5 +38,5 @@
             }
         </div>
     </mat-list-item>
-    <mat-divider></mat-divider>
+    <mat-divider *ngIf="fax.name.toLowerCase().includes(searchFax.toLowerCase()) || fax.number.includes(searchFax)"></mat-divider>
 }

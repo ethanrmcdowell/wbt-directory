@@ -22,6 +22,7 @@ export class EditFaxComponent {
 
   @Input() faxes: any;
   @Output() onUpdate = new EventEmitter<string>();
+  searchFax: string = "";
 
   ngOnInit() {
     this.faxes.forEach((fax: any) => {
@@ -31,7 +32,13 @@ export class EditFaxComponent {
   }
 
   deleteFax(fax: any) {
-    console.log(fax);
+    if (window.confirm("Are you sure you'd like to delete this fax number? This decision cannot be reversed!")) {
+      this.dataService.deleteFax(fax).then(() => {
+        console.log("Success?");
+      }).catch(error => {
+        console.error(error);
+      })
+    }
   }
 
   saveChanges(fax: any) {
