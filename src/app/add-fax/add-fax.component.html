@@ -1,1 +1,21 @@
-<p>add-fax works!</p>
+<div class="add-title">
+    <h1>Add Fax</h1>
+</div>
+
+<mat-card class="add-card" [formGroup]="newFaxForm">
+    <div>
+        <mat-form-field>
+            <mat-label>Fax Name</mat-label>
+            <input matInput formControlName="name">
+        </mat-form-field>
+    </div>
+    <div>
+        <mat-form-field>
+            <mat-label>Fax Number</mat-label>
+            <input matInput formControlName="number" maxlength="10">
+        </mat-form-field>
+    </div>
+    <div>
+        <button mat-raised-button color="warn" (click)="addFax()" [disabled]="!newFaxForm.valid">Add Fax</button>
+    </div>
+</mat-card>

@@ -75,4 +75,13 @@ export class DataService {
       console.error(error);
     })
   }
+
+  async addFax(fax: any) {
+    const collectionInstance: any = collection(this.firestore, 'faxes');
+    await addDoc(collectionInstance, fax).then(() => {
+      return;
+    }).catch(error => {
+      console.error(error);
+    })
+  }
 }
