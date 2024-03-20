@@ -12,3 +12,8 @@
 .list-item:hover {
     background-color: #F9E8D9;
 }
+
+.email-link:hover {
+    text-decoration: underline;
+    color: coral;
+}

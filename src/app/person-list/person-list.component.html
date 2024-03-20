@@ -7,7 +7,9 @@
       {{ formatPhone(person.telephone) }}
     </span>
     <span *ngIf="!isMobile">
-      {{ person.email }}
+      <p [cdkCopyToClipboard]="person.email" (click)="copyEmail()" class="email-link">
+        {{ person.email }}
+      </p>
     </span>
     <span *ngIf="!isMobile" class="department-icon">
       {{ person.department }}
