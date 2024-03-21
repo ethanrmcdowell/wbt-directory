@@ -51,6 +51,11 @@ export class AdminPanelComponent {
     this.onUpdate.emit();
   }
 
+  faxUpdated() {
+    console.log("Fax updated (admin-panel.component.ts)");
+    this.onUpdate.emit();
+  }
+
   logoutUser() {
     this.authService.logOutUser((response) => {
       this.onLogout.emit('all');

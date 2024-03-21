@@ -34,10 +34,14 @@ export class EditFaxComponent {
   deleteFax(fax: any) {
     if (window.confirm("Are you sure you'd like to delete this fax number? This decision cannot be reversed!")) {
       this.dataService.deleteFax(fax).then(() => {
-        console.log("Success?");
+        this.onUpdate.emit();
+        this.searchFax = "";
       }).catch(error => {
         console.error(error);
-      })
+        this.snackBar.open('Error - unable to delete!', 'Close', {
+          duration: 6000,
+        });
+      });
     }
   }
 
@@ -48,9 +52,13 @@ export class EditFaxComponent {
     }
 
     this.dataService.updateFax(updatedFax, fax.id).then(() => {
-      console.log("Success!");
+      this.onUpdate.emit();
+      fax.edit = !fax.edit;
     }).catch(error => {
       console.error(error);
-    })
+      this.snackBar.open('Error - unable update!', 'Close', {
+        duration: 6000,
+      });
+    });
   }
 }

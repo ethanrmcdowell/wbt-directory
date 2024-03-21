@@ -98,6 +98,7 @@ export class AppComponent {
     });
 
     await this.getDirectoryData();
+    await this.getFaxData();
     this.sortArrays();
   }
 

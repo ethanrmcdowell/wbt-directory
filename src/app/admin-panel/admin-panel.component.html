@@ -14,7 +14,7 @@
 } @else if (currentTab === 'add') {
     <app-add-employee (onUpdate)="employeesUpdated()"></app-add-employee>
 } @else if (currentTab === 'editFax') {
-    <app-edit-fax [faxes]="faxArray"></app-edit-fax>
+    <app-edit-fax (onUpdate)="faxUpdated()" [faxes]="faxArray"></app-edit-fax>
 } @else if (currentTab === 'addFax') {
-    <app-add-fax></app-add-fax>
+    <app-add-fax (onUpdate)="faxUpdated()"></app-add-fax>
 }

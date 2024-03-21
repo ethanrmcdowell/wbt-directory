@@ -31,7 +31,7 @@ export class PersonListComponent {
   }
 
   copyEmail() {
-    this.snackBar.open('E-mail copied to clipbaord.', 'Close', {
+    this.snackBar.open('E-mail copied to clipboard.', 'Close', {
       duration: 4000,
     });
   }

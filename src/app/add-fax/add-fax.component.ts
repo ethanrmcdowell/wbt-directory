@@ -25,8 +25,9 @@ export class AddFaxComponent {
 
   addFax() {
     this.dataService.addFax(this.newFaxForm.value).then(() => {
-      console.log("success?");
+      this.onUpdate.emit();
     }).catch(error => {
+      console.error(error);
       this.snackBar.open('Error!', 'Close', {
         duration: 6000,
       });

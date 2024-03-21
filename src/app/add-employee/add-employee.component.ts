@@ -38,6 +38,7 @@ export class AddEmployeeComponent {
     this.dataSevice.addEmployee(this.newEmployeeForm.value).then(() => {
       this.onUpdate.emit();
     }).catch(error => {
+      console.error(error);
       this.snackBar.open('Error!', 'Close', {
         duration: 6000,
       });
