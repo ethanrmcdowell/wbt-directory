@@ -38,6 +38,7 @@ export class AppComponent {
   title = 'wbt-directory';
   isMobile: boolean = true;
   userAuthenticated: boolean = false;
+  user: any;
   people: any = [];
   fax: any = [];
   searchText: string = "";
@@ -76,6 +77,10 @@ export class AppComponent {
     this.authService.userAuthenticated$.subscribe(isAuthenticated => {
       this.userAuthenticated = isAuthenticated;
     });
+    this.authService.userData$.subscribe(userData => {
+      this.user = userData;
+      console.log("user data", this.user);
+    })
   } 
 
   async ngOnInit() {
