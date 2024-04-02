@@ -6,6 +6,7 @@ import { MatBadgeModule } from '@angular/material/badge';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatIconModule } from '@angular/material/icon';
 import { ClipboardModule } from '@angular/cdk/clipboard';
+import { Person } from '../models';
 
 @Component({
   selector: 'app-person-list',
@@ -18,7 +19,7 @@ export class PersonListComponent {
   constructor(private snackBar: MatSnackBar) {};
 
   @Input() searchText: string = '';
-  @Input() person: any;
+  @Input() person: Person[] = [];
   @Input() isMobile: any;
 
   formatPhone(phone: any) {
