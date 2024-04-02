@@ -27,6 +27,8 @@ import { AuthService } from './auth.service';
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { DataService } from './data.service';
 
+import { Person, Fax } from './models';
+
 @Component({
     selector: 'app-root',
     standalone: true,
@@ -34,13 +36,14 @@ import { DataService } from './data.service';
     styleUrl: './app.component.css',
     imports: [CommonModule, MatDialogModule, MatIconModule, MatRadioModule, MatToolbarModule, MatListModule, MatDividerModule, MatBadgeModule, MatInputModule, MatFormFieldModule, FormsModule, MatChipsModule, PersonListComponent, AllEmployeesComponent, DepartmentEmployeesComponent, FaxNumbersComponent, AdminPanelComponent]
 })
+
 export class AppComponent {
   title = 'wbt-directory';
   isMobile: boolean = true;
   userAuthenticated: boolean = false;
   user: any;
-  people: any = [];
-  fax: any = [];
+  people: Person[] = [];
+  fax: Fax[] = [];
   searchText: string = "";
   directorySelected: string = "all";
   departments: string[] = ["assessing", "inspection", "building", "budget", "clerk", "code", "facilities", "finance",
@@ -124,6 +127,7 @@ export class AppComponent {
   }
 
   async getFaxData() {
+    this.fax = [];
     this.fax =  await this.dataService.getFaxData();
 
     this.fax.forEach((faxNum: any) => {
@@ -135,6 +139,7 @@ export class AppComponent {
     })
 
     this.fax.sort((a: any, b: any) => a.name.localeCompare(b.name));
+    console.log("faxes", this.fax);
   }
 
   formatDepartments(person: any) {

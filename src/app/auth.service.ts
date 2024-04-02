@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { getAuth, signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'firebase/auth';
+import { getAuth, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { BehaviorSubject } from 'rxjs';
-import { setPersistence, browserSessionPersistence } from '@angular/fire/auth';
-import firebase from 'firebase/app';
+import { browserSessionPersistence } from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -29,13 +28,13 @@ export class AuthService {
     })
   }
 
-  async loginUser(email: string, password: string, callback: (response: { success: boolean, message: any }) => void) {
+  async loginUser(email: string, password: string, callback: (response: { success: boolean, message: String }) => void) {
     this.auth.setPersistence(browserSessionPersistence);
     signInWithEmailAndPassword(this.auth, email, password)
     .then((userCredential) => {
         this.userAuthenticatedSubject.next(true);
         this.userEmail = userCredential.user.email;
-        callback({  success: true, message: userCredential })
+        callback({  success: true, message: userCredential.toString() })
     })
     .catch((error) => {
         this.userAuthenticatedSubject.next(false);
@@ -43,7 +42,7 @@ export class AuthService {
     })
   }
 
-  logOutUser(callback: (response: { success: boolean, message?: any }) => void) {
+  logOutUser(callback: (response: { success: boolean, message?: String }) => void) {
     signOut(this.auth)
     .then(() => {
         this.userAuthenticatedSubject.next(false);

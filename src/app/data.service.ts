@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { DocumentData, Firestore, addDoc, collection, deleteDoc, doc, getDocs, updateDoc } from '@angular/fire/firestore';
+import { Person, Fax } from './models';
 
 @Injectable({
   providedIn: 'root'
@@ -8,15 +9,14 @@ export class DataService {
 
   constructor(private firestore: Firestore) { }
 
-  async getDirectoryData() {
-    const directoryArray: DocumentData[] = [];
+  async getDirectoryData(): Promise<Person[]> {
+    const directoryArray: Person[] = [];
     const q = collection(this.firestore, 'directory');
     const querySnapshot = await getDocs(q);
 
     querySnapshot.forEach(doc => {
-      let data = doc.data();
-      const id = doc.id;
-      data = { id, ...data };
+      let data = doc.data() as Person;
+      data.id = doc.id;
       directoryArray.push(data);
     });
 
@@ -25,15 +25,14 @@ export class DataService {
     return directoryArray;
   }
 
-  async getFaxData() {
-    const faxArray: DocumentData[] = [];
+  async getFaxData(): Promise<Fax[]> {
+    const faxArray: Fax[] = [];
     const q = collection(this.firestore, 'faxes');
     const querySnapshot = await getDocs(q);
 
     querySnapshot.forEach(doc => {
-      let data = doc.data();
-      const id = doc.id;
-      data = { id, ...data };
+      let data = doc.data() as Fax;
+      data.id = doc.id;
       faxArray.push(data);
     });
 
