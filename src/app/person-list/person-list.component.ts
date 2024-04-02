@@ -19,7 +19,7 @@ export class PersonListComponent {
   constructor(private snackBar: MatSnackBar) {};
 
   @Input() searchText: string = '';
-  @Input() person: Person[] = [];
+  @Input() person: any;
   @Input() isMobile: any;
 
   formatPhone(phone: any) {

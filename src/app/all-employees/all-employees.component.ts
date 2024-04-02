@@ -12,9 +12,10 @@ import { Person } from '../models';
 })
 export class AllEmployeesComponent {
   @Input() searchText: string = '';
-  @Input() people: Person[] = [];
+  @Input() people: any;
   @Input() isMobile: any;
 
   ngOnInit() {
+    console.log("isMobile: " + this.isMobile);
   }
 }
